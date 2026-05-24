@@ -6,10 +6,14 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 <html lang="ko">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       * { box-sizing: border-box; margin: 0; padding: 0; }
       body { font-family: 'DM Mono', monospace; background: #faf9f7; color: #1a1a18; }
 
+      .wrapper { max-width: 1080px; margin: 0 auto; }
+
+      /* nav */
       .nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 0.5px solid #e2e0d8; }
       .nav-brand { display: flex; align-items: center; gap: 10px; }
       .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 15px; font-style: italic; letter-spacing: -0.01em; }
@@ -25,6 +29,17 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
       .nav-logo-hover { position: absolute; opacity: 0; transition: opacity 0.18s; display: flex; align-items: center; justify-content: center; pointer-events: none; }
       .nav-link:hover .nav-logo-hover { opacity: 1; }
 
+      /* 햄버거 — 모바일 전용 */
+      .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; padding: 4px; }
+      .hamburger span { width: 20px; height: 0.5px; background: #888780; display: block; }
+
+      /* 모바일 메뉴 드로어 */
+      .mobile-menu { display: none; flex-direction: column; padding: 1rem 2rem; border-bottom: 0.5px solid #e2e0d8; gap: 1rem; }
+      .mobile-menu.open { display: flex; }
+      .mobile-menu-link { font-family: 'Playfair Display', serif; font-size: 15px; font-style: italic; color: #888780; background: none; border: none; padding: 0; cursor: pointer; text-align: left; }
+      .mobile-menu-link.active { color: #1a1a18; }
+
+      /* hero */
       .hero { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 0.5px solid #e2e0d8; }
       .hero-left { padding: 3.5rem 2rem 2.5rem; border-right: 0.5px solid #e2e0d8; display: flex; flex-direction: column; justify-content: flex-end; gap: 1rem; }
       .hero-eyebrow { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #aaa89f; }
@@ -35,10 +50,10 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
       .hero-tags { display: flex; gap: 0.75rem; flex-wrap: wrap; }
       .hero-tag { font-family: 'Playfair Display', serif; font-style: italic; font-size: 11px; padding: 3px 8px; border: 0.5px solid #c8c6be; color: #888780; }
 
+      /* cards */
       .section { padding: 1.5rem 2rem; }
       .section-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #aaa89f; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 1rem; }
       .section-label::after { content: ''; flex: 1; height: 0.5px; background: #e2e0d8; }
-
       .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
       .card { padding: 1.25rem 1rem; border-right: 0.5px solid #e2e0d8; border-top: 0.5px solid #e2e0d8; position: relative; overflow: hidden; cursor: pointer; }
       .card:last-child { border-right: none; }
@@ -49,186 +64,234 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
       .yao-eum-r { width: 42%; height: 1.5px; background: #1a1a18; }
       .card-num { font-size: 9px; color: #aaa89f; margin-bottom: 0.6rem; margin-top: 0.5rem; }
       .card-tag { display: inline-block; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; padding: 2px 6px; margin-bottom: 0.6rem; }
-      .tag-code  { border: 0.5px solid #5DCAA5; color: #0F6E56; }
-      .tag-art   { border: 0.5px solid #F0997B; color: #993C1D; }
-      .tag-book  { border: 0.5px solid #AFA9EC; color: #3C3489; }
-      .tag-essay { border: 0.5px solid #B4B2A9; color: #5F5E5A; }
+      .tag-code { border: 0.5px solid #5DCAA5; color: #0F6E56; }
+      .tag-art  { border: 0.5px solid #F0997B; color: #993C1D; }
+      .tag-book { border: 0.5px solid #AFA9EC; color: #3C3489; }
+      .tag-essay{ border: 0.5px solid #B4B2A9; color: #5F5E5A; }
       .card-title { font-family: 'Playfair Display', serif; font-size: 13px; line-height: 1.35; font-weight: 400; margin-bottom: 0.75rem; }
       .card-date { font-size: 9px; color: #aaa89f; }
 
+      /* footer */
       .footer { padding: 1.25rem 2rem; border-top: 0.5px solid #e2e0d8; display: flex; justify-content: space-between; }
       .footer-note { font-size: 9px; color: #aaa89f; }
+
+      /* 모바일 반응형 */
+      @media (max-width: 680px) {
+        .nav { padding: 1rem 1.25rem; }
+        .nav-links { display: none; }
+        .hamburger { display: flex; }
+
+        .hero { grid-template-columns: 1fr; }
+        .hero-left { padding: 2rem 1.25rem 1.5rem; border-right: none; border-bottom: 0.5px solid #e2e0d8; }
+        .hero-title { font-size: 32px; }
+        .hero-right { padding: 1.25rem; }
+
+        .section { padding: 1rem 1.25rem; }
+        .card-grid { grid-template-columns: 1fr; }
+        .card { display: flex; align-items: center; gap: 1rem; border-right: none; padding: 0.875rem 0; margin: 0 1.25rem; }
+        .card-yao { display: none; }
+        .card-num { margin: 0; min-width: 28px; }
+        .card-tag { margin: 0; }
+        .card-title { margin: 0; font-size: 12px; }
+        .card-date { margin-left: auto; white-space: nowrap; }
+
+        .footer { padding: 1rem 1.25rem; }
+      }
     </style>
   </head>
   <body>
-    <nav class="nav">
-      <div class="nav-brand">
-        <svg viewBox="-90 -90 180 180" width="33" height="33" style="flex-shrink:0">
-          <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.2"/>
-          <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.2"/>
-          <circle cx="0" cy="0" r="5" fill="currentColor"/>
-          <circle cx="46" cy="0" r="3.5" fill="currentColor"/>
-          <circle cx="32.5" cy="-32.5" r="3.5" fill="currentColor"/>
-          <circle cx="0" cy="-46" r="3.5" fill="currentColor"/>
-          <circle cx="-32.5" cy="-32.5" r="3.5" fill="currentColor"/>
-          <circle cx="-46" cy="0" r="3.5" fill="currentColor"/>
-          <circle cx="-32.5" cy="32.5" r="3.5" fill="currentColor"/>
-          <circle cx="0" cy="46" r="3.5" fill="currentColor"/>
-          <circle cx="32.5" cy="32.5" r="3.5" fill="currentColor"/>
-        </svg>
-        <span class="nav-logo-text">archive</span>
-      </div>
-      <div class="nav-links">
-        <button class="nav-link active">
-          <span class="nav-label">all</span>
-          <span class="nav-logo-hover">
-            <svg viewBox="-90 -90 180 180" width="28" height="28">
-              <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-              <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-              <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.3"/>
-              <circle cx="46" cy="0" r="5" fill="currentColor"/>
-              <circle cx="32.5" cy="-32.5" r="5" fill="currentColor"/>
-              <circle cx="0" cy="-46" r="5" fill="currentColor"/>
-              <circle cx="-32.5" cy="-32.5" r="5" fill="currentColor"/>
-              <circle cx="-46" cy="0" r="5" fill="currentColor"/>
-              <circle cx="-32.5" cy="32.5" r="5" fill="currentColor"/>
-              <circle cx="0" cy="46" r="5" fill="currentColor"/>
-              <circle cx="32.5" cy="32.5" r="5" fill="currentColor"/>
-            </svg>
-          </span>
-        </button>
-        <div class="nav-sep"><div class="sep-yang"></div></div>
-        <button class="nav-link">
-          <span class="nav-label">vibe coding</span>
-          <span class="nav-logo-hover">
-            <svg viewBox="-90 -90 180 180" width="28" height="28">
-              <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-              <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-              <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.2"/>
-              <circle cx="32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="0" cy="-46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="-32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="-46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="-32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="0" cy="46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="46" cy="0" r="5" fill="currentColor"/>
-            </svg>
-          </span>
-        </button>
-        <div class="nav-sep"><div class="sep-eum"><span></span><span></span></div></div>
-        <button class="nav-link">
-          <span class="nav-label">photos</span>
-          <span class="nav-logo-hover">
-            <svg viewBox="-90 -90 180 180" width="28" height="28">
-              <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-              <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-              <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.2"/>
-              <circle cx="46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="0" cy="-46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="-32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="-46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="-32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="0" cy="46" r="5" fill="currentColor"/>
-            </svg>
-          </span>
-        </button>
-        <div class="nav-sep"><div class="sep-yang"></div></div>
-        <button class="nav-link">
-          <span class="nav-label">books</span>
-          <span class="nav-logo-hover">
-            <svg viewBox="-90 -90 180 180" width="28" height="28">
-              <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-              <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-              <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.2"/>
-              <circle cx="46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="0" cy="-46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="-32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="-32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="0" cy="46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="-46" cy="0" r="5" fill="currentColor"/>
-            </svg>
-          </span>
-        </button>
-        <div class="nav-sep"><div class="sep-eum"><span></span><span></span></div></div>
-        <button class="nav-link">
-          <span class="nav-label">thoughts</span>
-          <span class="nav-logo-hover">
-            <svg viewBox="-90 -90 180 180" width="28" height="28">
-              <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-              <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-              <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.2"/>
-              <circle cx="46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="-32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="-46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="-32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="0" cy="46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="0" cy="-46" r="5" fill="currentColor"/>
-            </svg>
-          </span>
-        </button>
-      </div>
-    </nav>
-
-    <div class="hero">
-      <div class="hero-left">
-        <p class="hero-eyebrow">personal archive — est. 2025</p>
-        <h1 class="hero-title">기록,<br><em>그리고</em><br>생각들.</h1>
-      </div>
-      <div class="hero-right">
-        <p class="hero-desc">박물관을 돌아다니며 찍어온 사진들, 누나에게 받은 명화 엽서들, 코드로 만들어낸 것들, 읽고 난 책의 흔적들.<br><br>누가 보지 않아도 괜찮다.</p>
-        <div class="hero-tags">
-          <span class="hero-tag">vibe coding</span>
-          <span class="hero-tag">photos</span>
-          <span class="hero-tag">books</span>
-          <span class="hero-tag">thoughts</span>
+    <div class="wrapper">
+      <nav class="nav">
+        <div class="nav-brand">
+          <svg viewBox="-90 -90 180 180" width="33" height="33" style="flex-shrink:0">
+            <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="0" cy="0" r="5" fill="currentColor"/>
+            <circle cx="46" cy="0" r="3.5" fill="currentColor"/>
+            <circle cx="32.5" cy="-32.5" r="3.5" fill="currentColor"/>
+            <circle cx="0" cy="-46" r="3.5" fill="currentColor"/>
+            <circle cx="-32.5" cy="-32.5" r="3.5" fill="currentColor"/>
+            <circle cx="-46" cy="0" r="3.5" fill="currentColor"/>
+            <circle cx="-32.5" cy="32.5" r="3.5" fill="currentColor"/>
+            <circle cx="0" cy="46" r="3.5" fill="currentColor"/>
+            <circle cx="32.5" cy="32.5" r="3.5" fill="currentColor"/>
+          </svg>
+          <span class="nav-logo-text">archive</span>
         </div>
+
+        <!-- 데스크탑 메뉴 -->
+        <div class="nav-links">
+          <button class="nav-link active">
+            <span class="nav-label">all</span>
+            <span class="nav-logo-hover">
+              <svg viewBox="-90 -90 180 180" width="28" height="28">
+                <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.3"/>
+                <circle cx="46" cy="0" r="5" fill="currentColor"/>
+                <circle cx="32.5" cy="-32.5" r="5" fill="currentColor"/>
+                <circle cx="0" cy="-46" r="5" fill="currentColor"/>
+                <circle cx="-32.5" cy="-32.5" r="5" fill="currentColor"/>
+                <circle cx="-46" cy="0" r="5" fill="currentColor"/>
+                <circle cx="-32.5" cy="32.5" r="5" fill="currentColor"/>
+                <circle cx="0" cy="46" r="5" fill="currentColor"/>
+                <circle cx="32.5" cy="32.5" r="5" fill="currentColor"/>
+              </svg>
+            </span>
+          </button>
+          <div class="nav-sep"><div class="sep-yang"></div></div>
+          <button class="nav-link">
+            <span class="nav-label">vibe coding</span>
+            <span class="nav-logo-hover">
+              <svg viewBox="-90 -90 180 180" width="28" height="28">
+                <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.2"/>
+                <circle cx="32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="0" cy="-46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="-32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="-46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="-32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="0" cy="46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="46" cy="0" r="5" fill="currentColor"/>
+              </svg>
+            </span>
+          </button>
+          <div class="nav-sep"><div class="sep-eum"><span></span><span></span></div></div>
+          <button class="nav-link">
+            <span class="nav-label">photos</span>
+            <span class="nav-logo-hover">
+              <svg viewBox="-90 -90 180 180" width="28" height="28">
+                <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.2"/>
+                <circle cx="46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="0" cy="-46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="-32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="-46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="-32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="0" cy="46" r="5" fill="currentColor"/>
+              </svg>
+            </span>
+          </button>
+          <div class="nav-sep"><div class="sep-yang"></div></div>
+          <button class="nav-link">
+            <span class="nav-label">books</span>
+            <span class="nav-logo-hover">
+              <svg viewBox="-90 -90 180 180" width="28" height="28">
+                <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.2"/>
+                <circle cx="46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="0" cy="-46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="-32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="-32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="0" cy="46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="-46" cy="0" r="5" fill="currentColor"/>
+              </svg>
+            </span>
+          </button>
+          <div class="nav-sep"><div class="sep-eum"><span></span><span></span></div></div>
+          <button class="nav-link">
+            <span class="nav-label">thoughts</span>
+            <span class="nav-logo-hover">
+              <svg viewBox="-90 -90 180 180" width="28" height="28">
+                <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+                <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.2"/>
+                <circle cx="46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="-32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="-46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="-32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="0" cy="46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+                <circle cx="0" cy="-46" r="5" fill="currentColor"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+
+        <!-- 햄버거 버튼 (모바일) -->
+        <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+
+      <!-- 모바일 메뉴 -->
+      <div class="mobile-menu" id="mobile-menu">
+        <button class="mobile-menu-link active">all</button>
+        <button class="mobile-menu-link">vibe coding</button>
+        <button class="mobile-menu-link">photos</button>
+        <button class="mobile-menu-link">books</button>
+        <button class="mobile-menu-link">thoughts</button>
+      </div>
+
+      <div class="hero">
+        <div class="hero-left">
+          <p class="hero-eyebrow">personal archive — est. 2025</p>
+          <h1 class="hero-title">기록,<br><em>그리고</em><br>생각들.</h1>
+        </div>
+        <div class="hero-right">
+          <p class="hero-desc">박물관을 돌아다니며 찍어온 사진들, 누나에게 받은 명화 엽서들, 코드로 만들어낸 것들, 읽고 난 책의 흔적들.<br><br>누가 보지 않아도 괜찮다.</p>
+          <div class="hero-tags">
+            <span class="hero-tag">vibe coding</span>
+            <span class="hero-tag">photos</span>
+            <span class="hero-tag">books</span>
+            <span class="hero-tag">thoughts</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">최근 기록</div>
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-yao"><div class="yao-yang"></div></div>
+            <div class="card-num">001</div>
+            <div><span class="card-tag tag-code">vibe coding</span></div>
+            <div class="card-title">Claude로 만든 명화 아카이브 앱</div>
+            <div class="card-date">25.05</div>
+          </div>
+          <div class="card">
+            <div class="card-yao"><div class="yao-eum-l"></div><div class="yao-eum-r"></div></div>
+            <div class="card-num">002</div>
+            <div><span class="card-tag tag-art">photos</span></div>
+            <div class="card-title">베르메르의 빛, 암스테르담에서</div>
+            <div class="card-date">25.04</div>
+          </div>
+          <div class="card">
+            <div class="card-yao"><div class="yao-yang"></div></div>
+            <div class="card-num">003</div>
+            <div><span class="card-tag tag-book">books</span></div>
+            <div class="card-title">『파친코』— 이름 없는 사람들의 시간</div>
+            <div class="card-date">25.03</div>
+          </div>
+          <div class="card">
+            <div class="card-yao"><div class="yao-eum-l"></div><div class="yao-eum-r"></div></div>
+            <div class="card-num">004</div>
+            <div><span class="card-tag tag-essay">thoughts</span></div>
+            <div class="card-title">인스타그램을 그만두고 싶어졌다</div>
+            <div class="card-date">25.03</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span class="footer-note">© 직접 만든 것들</span>
+        <span class="footer-note">소개</span>
       </div>
     </div>
 
-    <div class="section">
-      <div class="section-label">최근 기록</div>
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-yao"><div class="yao-yang"></div></div>
-          <div class="card-num">001</div>
-          <div><span class="card-tag tag-code">vibe coding</span></div>
-          <div class="card-title">Claude로 만든 명화 아카이브 앱</div>
-          <div class="card-date">25.05</div>
-        </div>
-        <div class="card">
-          <div class="card-yao"><div class="yao-eum-l"></div><div class="yao-eum-r"></div></div>
-          <div class="card-num">002</div>
-          <div><span class="card-tag tag-art">photos</span></div>
-          <div class="card-title">베르메르의 빛, 암스테르담에서</div>
-          <div class="card-date">25.04</div>
-        </div>
-        <div class="card">
-          <div class="card-yao"><div class="yao-yang"></div></div>
-          <div class="card-num">003</div>
-          <div><span class="card-tag tag-book">books</span></div>
-          <div class="card-title">『파친코』— 이름 없는 사람들의 시간</div>
-          <div class="card-date">25.03</div>
-        </div>
-        <div class="card">
-          <div class="card-yao"><div class="yao-eum-l"></div><div class="yao-eum-r"></div></div>
-          <div class="card-num">004</div>
-          <div><span class="card-tag tag-essay">thoughts</span></div>
-          <div class="card-title">인스타그램을 그만두고 싶어졌다</div>
-          <div class="card-date">25.03</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer">
-      <span class="footer-note">© 직접 만든 것들</span>
-      <span class="footer-note">소개</span>
-    </div>
+    <script>
+      const btn = document.getElementById('hamburger');
+      const menu = document.getElementById('mobile-menu');
+      btn.addEventListener('click', () => menu.classList.toggle('open'));
+    </script>
   </body>
 </html>
