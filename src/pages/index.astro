@@ -13,40 +13,80 @@ const posts = (await getCollection('blog')).sort(
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Mono:wght@300;400&family=Noto+Serif+KR:wght@300;400&display=swap');
       * { box-sizing: border-box; margin: 0; padding: 0; }
       body { font-family: 'DM Mono', monospace; background: #faf9f7; color: #1a1a18; }
       .wrapper { max-width: 1080px; margin: 0 auto; }
+
+      /* 네비게이션 */
       .nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2rem; border-bottom: 0.5px solid #e2e0d8; }
       .nav-brand { display: flex; align-items: center; gap: 10px; }
-      .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 15px; font-style: italic; letter-spacing: -0.01em; }
-      .nav-links { display: flex; align-items: center; justify-content: flex-end; }
-      .nav-sep { display: flex; flex-direction: column; gap: 3px; padding: 0 8px; align-items: center; }
+      .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 15px; font-style: italic; font-weight: 700; letter-spacing: -0.01em; color: #3C3489; }
+      .nav-links { display: flex; align-items: center; }
+      .nav-sep { width: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; flex-shrink: 0; }
       .sep-yang { width: 10px; height: 1px; background: #c8c6be; }
       .sep-eum { display: flex; gap: 2px; }
       .sep-eum span { width: 4px; height: 1px; background: #c8c6be; }
-      .nav-link { font-family: 'Playfair Display', serif; font-size: 13px; font-style: italic; color: #888780; cursor: pointer; border: none !important; outline: none !important; background: none !important; box-shadow: none !important; -webkit-appearance: none; appearance: none; letter-spacing: -0.01em; position: relative; width: 68px; height: 24px; display: flex; align-items: center; justify-content: center; padding: 0; }
-      .nav-link.active { color: #1a1a18; }
-      .nav-label { transition: opacity 0.18s; position: absolute; white-space: nowrap; pointer-events: none; }
-      .nav-link:hover .nav-label { opacity: 0; }
-      .nav-logo-hover { position: absolute; opacity: 0; transition: opacity 0.18s; display: flex; align-items: center; justify-content: center; pointer-events: none; }
-      .nav-link:hover .nav-logo-hover { opacity: 1; }
+      .nav-link { width: 72px; height: 44px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; border: none !important; outline: none !important; background: none !important; box-shadow: none !important; -webkit-appearance: none; appearance: none; position: relative; flex-shrink: 0; }
+      .nav-icon { transition: opacity 0.18s; display: flex; align-items: center; justify-content: center; }
+      .nav-link:hover .nav-icon { opacity: 0; }
+      .nav-label { font-family: 'Playfair Display', serif; font-size: 12px; font-style: italic; color: #444441; white-space: nowrap; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); opacity: 0; transition: opacity 0.18s; pointer-events: none; }
+      .nav-link:hover .nav-label { opacity: 1; color: #1a1a18; }
+      .nav-link.active .nav-label { font-weight: 700; }
       .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; padding: 4px; }
-      .hamburger span { width: 20px; height: 0.5px; background: #888780; display: block; }
+      .hamburger span { width: 20px; height: 0.5px; background: #444441; display: block; }
       .mobile-menu { display: none; flex-direction: column; padding: 1rem 1.25rem; border-bottom: 0.5px solid #e2e0d8; gap: 1rem; }
       .mobile-menu.open { display: flex; }
-      .mobile-menu-link { font-family: 'Playfair Display', serif; font-size: 15px; font-style: italic; color: #888780; background: none; border: none; padding: 0; cursor: pointer; text-align: left; }
-      .mobile-menu-link.active { color: #1a1a18; }
-      .hero { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 0.5px solid #e2e0d8; }
-      .hero-left { padding: 3.5rem 2rem 2.5rem; border-right: 0.5px solid #e2e0d8; display: flex; flex-direction: column; justify-content: flex-end; gap: 1rem; }
-      .hero-eyebrow { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #aaa89f; }
-      .hero-title { font-family: 'Playfair Display', serif; font-size: 40px; line-height: 1.05; font-weight: 400; letter-spacing: -0.02em; }
-      .hero-title em { font-style: italic; color: #888780; }
-      .hero-right { padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; }
-      .hero-desc { font-family: 'Noto Serif KR', serif; font-weight: 300; font-size: 11px; line-height: 2; color: #888780; }
-      .hero-tags { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-      .hero-tag { font-family: 'Playfair Display', serif; font-style: italic; font-size: 11px; padding: 3px 8px; border: 0.5px solid #c8c6be; color: #888780; }
+      .mobile-menu-link { font-family: 'Playfair Display', serif; font-size: 15px; font-style: italic; color: #444441; background: none; border: none; padding: 0; cursor: pointer; text-align: left; }
+      .mobile-menu-link.active { color: #1a1a18; font-weight: 700; }
+
+      /* 슬라이더 */
+      .slider-wrap { position: relative; width: 100%; height: 360px; overflow: hidden; background: #fff; border-bottom: 0.5px solid #e2e0d8; }
+      .slides-track { display: flex; height: 100%; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+      .slide { min-width: 100%; height: 100%; position: relative; background: #fff; overflow: hidden; }
+
+      /* 서예 이미지 */
+      .slide-img { position: absolute; inset: 0; }
+      .slide-img img { width: 100%; height: 100%; object-fit: contain; }
+
+      /* 텍스트 공통 */
+      .slide-text { position: absolute; z-index: 2; font-family: 'Playfair Display', serif; font-weight: 400; letter-spacing: -0.02em; }
+      .slide-text .kr { font-size: 28px; line-height: 1.15; color: #1a1a18; display: block; }
+      .slide-text .en { font-size: 11px; font-style: italic; color: #5F5E5A; display: block; margin-top: 6px; }
+      .slide-text .meta { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: #888780; display: block; margin-top: 10px; }
+
+      /* 구도 A: 왼쪽 하단 */
+      .layout-a .slide-text { bottom: 2.5rem; left: 2.5rem; }
+      .layout-a .slide-text .kr,
+      .layout-a .slide-text .en,
+      .layout-a .slide-text .meta { background: linear-gradient(to right, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.92) 70%, rgba(255,255,255,0) 100%); padding-right: 40px; }
+
+      /* 구도 B: 오른쪽 중앙 */
+      .layout-b .slide-text { top: 50%; right: 2.5rem; transform: translateY(-50%); text-align: right; }
+      .layout-b .slide-text .kr,
+      .layout-b .slide-text .en,
+      .layout-b .slide-text .meta { background: linear-gradient(to left, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.92) 70%, rgba(255,255,255,0) 100%); padding-left: 40px; }
+
+      /* 구도 C: 상단 중앙 */
+      .layout-c .slide-text { top: 2.5rem; left: 50%; transform: translateX(-50%); text-align: center; white-space: nowrap; }
+      .layout-c .slide-text .kr,
+      .layout-c .slide-text .en,
+      .layout-c .slide-text .meta { background: radial-gradient(ellipse at center, rgba(255,255,255,0.98) 40%, rgba(255,255,255,0) 100%); padding: 2px 28px; }
+
+      /* 화살표 */
+      .arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; width: 36px; height: 36px; border: 0.5px solid #e2e0d8; background: rgba(255,255,255,0.9); cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 14px; color: #444441; transition: background 0.15s; }
+      .arrow:hover { background: #fff; color: #1a1a18; }
+      .arrow.left { left: 1.25rem; }
+      .arrow.right { right: 1.25rem; }
+
+      /* 점 */
+      .dots { position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 10; }
+      .dot { width: 4px; height: 4px; border-radius: 50%; background: #c8c6be; cursor: pointer; transition: background 0.2s, transform 0.2s; }
+      .dot.active { background: #7F77DD; transform: scale(1.3); }
+
+      /* 카드 섹션 */
       .section { padding: 1.5rem 2rem; }
-      .section-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #aaa89f; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 1rem; }
+      .section-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #888780; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 1rem; }
       .section-label::after { content: ''; flex: 1; height: 0.5px; background: #e2e0d8; }
       .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
       .card { padding: 1.25rem 1rem; border-right: 0.5px solid #e2e0d8; border-top: 0.5px solid #e2e0d8; position: relative; overflow: hidden; cursor: pointer; text-decoration: none; color: inherit; display: block; }
@@ -56,24 +96,23 @@ const posts = (await getCollection('blog')).sort(
       .yao-yang { flex: 1; height: 1.5px; background: #1a1a18; }
       .yao-eum-l { width: 42%; height: 1.5px; background: #1a1a18; }
       .yao-eum-r { width: 42%; height: 1.5px; background: #1a1a18; }
-      .card-num { font-size: 9px; color: #aaa89f; margin-bottom: 0.6rem; margin-top: 0.5rem; }
+      .card-num { font-size: 9px; color: #888780; margin-bottom: 0.6rem; margin-top: 0.5rem; }
       .card-tag { display: inline-block; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; padding: 2px 6px; margin-bottom: 0.6rem; }
       .tag-code  { border: 0.5px solid #5DCAA5; color: #0F6E56; }
       .tag-art   { border: 0.5px solid #F0997B; color: #993C1D; }
       .tag-book  { border: 0.5px solid #AFA9EC; color: #3C3489; }
       .tag-essay { border: 0.5px solid #B4B2A9; color: #5F5E5A; }
-      .card-title { font-family: 'Playfair Display', serif; font-size: 13px; line-height: 1.35; font-weight: 400; margin-bottom: 0.75rem; }
-      .card-date { font-size: 9px; color: #aaa89f; }
+      .card-title { font-family: 'Playfair Display', serif; font-size: 13px; line-height: 1.35; font-weight: 400; margin-bottom: 0.75rem; color: #1a1a18; }
+      .card-date { font-size: 9px; color: #888780; }
       .footer { padding: 1.25rem 2rem; border-top: 0.5px solid #e2e0d8; display: flex; justify-content: space-between; }
-      .footer-note { font-size: 9px; color: #aaa89f; }
+      .footer-note { font-size: 9px; color: #888780; }
+
       @media (max-width: 680px) {
         .nav { padding: 1rem 1.25rem; }
         .nav-links { display: none; }
         .hamburger { display: flex; }
-        .hero { grid-template-columns: 1fr; }
-        .hero-left { padding: 2rem 1.25rem 1.5rem; border-right: none; border-bottom: 0.5px solid #e2e0d8; }
-        .hero-title { font-size: 32px; }
-        .hero-right { padding: 1.25rem; }
+        .slider-wrap { height: 260px; }
+        .slide-text .kr { font-size: 22px; }
         .section { padding: 1rem 1.25rem; }
         .card-grid { grid-template-columns: 1fr; }
         .card { display: flex; align-items: center; gap: 1rem; border-right: none; padding: 0.875rem 0; margin: 0 1.25rem; }
@@ -91,114 +130,90 @@ const posts = (await getCollection('blog')).sort(
       <nav class="nav">
         <div class="nav-brand">
           <svg viewBox="-90 -90 180 180" width="33" height="33" style="flex-shrink:0">
-            <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.2"/>
-            <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.2"/>
-            <circle cx="0" cy="0" r="5" fill="currentColor"/>
-            <circle cx="46" cy="0" r="3.5" fill="currentColor"/>
-            <circle cx="32.5" cy="-32.5" r="3.5" fill="currentColor"/>
-            <circle cx="0" cy="-46" r="3.5" fill="currentColor"/>
-            <circle cx="-32.5" cy="-32.5" r="3.5" fill="currentColor"/>
-            <circle cx="-46" cy="0" r="3.5" fill="currentColor"/>
-            <circle cx="-32.5" cy="32.5" r="3.5" fill="currentColor"/>
-            <circle cx="0" cy="46" r="3.5" fill="currentColor"/>
-            <circle cx="32.5" cy="32.5" r="3.5" fill="currentColor"/>
+            <circle cx="0" cy="0" r="33" fill="none" stroke="#AFA9EC" stroke-width="1" opacity="0.5"/>
+            <circle cx="0" cy="0" r="16" fill="none" stroke="#AFA9EC" stroke-width="1" opacity="0.5"/>
+            <circle cx="0" cy="0" r="8" fill="#AFA9EC" opacity="0.2"/><circle cx="0" cy="0" r="5" fill="#AFA9EC" opacity="0.4"/><circle cx="0" cy="0" r="3.5" fill="#7F77DD"/>
+            <circle cx="46" cy="0" r="7" fill="#AFA9EC" opacity="0.2"/><circle cx="46" cy="0" r="4.5" fill="#AFA9EC" opacity="0.4"/><circle cx="46" cy="0" r="3" fill="#7F77DD"/>
+            <circle cx="32.5" cy="-32.5" r="7" fill="#AFA9EC" opacity="0.2"/><circle cx="32.5" cy="-32.5" r="4.5" fill="#AFA9EC" opacity="0.4"/><circle cx="32.5" cy="-32.5" r="3" fill="#7F77DD"/>
+            <circle cx="0" cy="-46" r="7" fill="#AFA9EC" opacity="0.2"/><circle cx="0" cy="-46" r="4.5" fill="#AFA9EC" opacity="0.4"/><circle cx="0" cy="-46" r="3" fill="#7F77DD"/>
+            <circle cx="-32.5" cy="-32.5" r="7" fill="#AFA9EC" opacity="0.2"/><circle cx="-32.5" cy="-32.5" r="4.5" fill="#AFA9EC" opacity="0.4"/><circle cx="-32.5" cy="-32.5" r="3" fill="#7F77DD"/>
+            <circle cx="-46" cy="0" r="7" fill="#AFA9EC" opacity="0.2"/><circle cx="-46" cy="0" r="4.5" fill="#AFA9EC" opacity="0.4"/><circle cx="-46" cy="0" r="3" fill="#7F77DD"/>
+            <circle cx="-32.5" cy="32.5" r="7" fill="#AFA9EC" opacity="0.2"/><circle cx="-32.5" cy="32.5" r="4.5" fill="#AFA9EC" opacity="0.4"/><circle cx="-32.5" cy="32.5" r="3" fill="#7F77DD"/>
+            <circle cx="0" cy="46" r="7" fill="#AFA9EC" opacity="0.2"/><circle cx="0" cy="46" r="4.5" fill="#AFA9EC" opacity="0.4"/><circle cx="0" cy="46" r="3" fill="#7F77DD"/>
+            <circle cx="32.5" cy="32.5" r="7" fill="#AFA9EC" opacity="0.2"/><circle cx="32.5" cy="32.5" r="4.5" fill="#AFA9EC" opacity="0.4"/><circle cx="32.5" cy="32.5" r="3" fill="#7F77DD"/>
           </svg>
-          <span class="nav-logo-text">archive</span>
+          <span class="nav-logo-text">jc archive</span>
         </div>
         <div class="nav-links">
           <button class="nav-link active">
+            <span class="nav-icon">
+              <svg viewBox="-90 -90 180 180" width="33" height="33">
+                <circle cx="0" cy="0" r="33" fill="none" stroke="#444441" stroke-width="1.5" opacity="0.5"/>
+                <circle cx="0" cy="0" r="16" fill="none" stroke="#444441" stroke-width="1.5" opacity="0.5"/>
+                <circle cx="0" cy="0" r="3" fill="#444441" opacity="0.3"/>
+                <circle cx="46" cy="0" r="9" fill="#7F77DD" opacity="0.15"/><circle cx="46" cy="0" r="6" fill="#7F77DD" opacity="0.4"/><circle cx="46" cy="0" r="3.5" fill="#7F77DD"/>
+                <circle cx="32.5" cy="-32.5" r="9" fill="#7F77DD" opacity="0.15"/><circle cx="32.5" cy="-32.5" r="6" fill="#7F77DD" opacity="0.4"/><circle cx="32.5" cy="-32.5" r="3.5" fill="#7F77DD"/>
+                <circle cx="0" cy="-46" r="9" fill="#7F77DD" opacity="0.15"/><circle cx="0" cy="-46" r="6" fill="#7F77DD" opacity="0.4"/><circle cx="0" cy="-46" r="3.5" fill="#7F77DD"/>
+                <circle cx="-32.5" cy="-32.5" r="9" fill="#7F77DD" opacity="0.15"/><circle cx="-32.5" cy="-32.5" r="6" fill="#7F77DD" opacity="0.4"/><circle cx="-32.5" cy="-32.5" r="3.5" fill="#7F77DD"/>
+                <circle cx="-46" cy="0" r="9" fill="#7F77DD" opacity="0.15"/><circle cx="-46" cy="0" r="6" fill="#7F77DD" opacity="0.4"/><circle cx="-46" cy="0" r="3.5" fill="#7F77DD"/>
+                <circle cx="-32.5" cy="32.5" r="9" fill="#7F77DD" opacity="0.15"/><circle cx="-32.5" cy="32.5" r="6" fill="#7F77DD" opacity="0.4"/><circle cx="-32.5" cy="32.5" r="3.5" fill="#7F77DD"/>
+                <circle cx="0" cy="46" r="9" fill="#7F77DD" opacity="0.15"/><circle cx="0" cy="46" r="6" fill="#7F77DD" opacity="0.4"/><circle cx="0" cy="46" r="3.5" fill="#7F77DD"/>
+                <circle cx="32.5" cy="32.5" r="9" fill="#7F77DD" opacity="0.15"/><circle cx="32.5" cy="32.5" r="6" fill="#7F77DD" opacity="0.4"/><circle cx="32.5" cy="32.5" r="3.5" fill="#7F77DD"/>
+              </svg>
+            </span>
             <span class="nav-label">all</span>
-            <span class="nav-logo-hover">
-              <svg viewBox="-90 -90 180 180" width="28" height="28">
-                <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-                <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-                <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.3"/>
-                <circle cx="46" cy="0" r="5" fill="currentColor"/>
-                <circle cx="32.5" cy="-32.5" r="5" fill="currentColor"/>
-                <circle cx="0" cy="-46" r="5" fill="currentColor"/>
-                <circle cx="-32.5" cy="-32.5" r="5" fill="currentColor"/>
-                <circle cx="-46" cy="0" r="5" fill="currentColor"/>
-                <circle cx="-32.5" cy="32.5" r="5" fill="currentColor"/>
-                <circle cx="0" cy="46" r="5" fill="currentColor"/>
-                <circle cx="32.5" cy="32.5" r="5" fill="currentColor"/>
-              </svg>
-            </span>
           </button>
           <div class="nav-sep"><div class="sep-yang"></div></div>
           <button class="nav-link">
+            <span class="nav-icon">
+              <svg viewBox="-90 -90 180 180" width="33" height="33">
+                <circle cx="0" cy="0" r="33" fill="none" stroke="#444441" stroke-width="1.5" opacity="0.5"/>
+                <circle cx="0" cy="0" r="16" fill="none" stroke="#444441" stroke-width="1.5" opacity="0.5"/>
+                <circle cx="0" cy="0" r="3" fill="#444441" opacity="0.3"/>
+                <circle cx="32.5" cy="-32.5" r="3" fill="#888780" opacity="0.5"/><circle cx="0" cy="-46" r="3" fill="#888780" opacity="0.5"/><circle cx="-32.5" cy="-32.5" r="3" fill="#888780" opacity="0.5"/><circle cx="-46" cy="0" r="3" fill="#888780" opacity="0.5"/><circle cx="-32.5" cy="32.5" r="3" fill="#888780" opacity="0.5"/><circle cx="0" cy="46" r="3" fill="#888780" opacity="0.5"/><circle cx="32.5" cy="32.5" r="3" fill="#888780" opacity="0.5"/>
+                <circle cx="46" cy="0" r="9" fill="#7F77DD" opacity="0.15"/><circle cx="46" cy="0" r="6" fill="#7F77DD" opacity="0.4"/><circle cx="46" cy="0" r="3.5" fill="#7F77DD"/>
+              </svg>
+            </span>
             <span class="nav-label">vibe coding</span>
-            <span class="nav-logo-hover">
-              <svg viewBox="-90 -90 180 180" width="28" height="28">
-                <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-                <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-                <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.2"/>
-                <circle cx="32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="0" cy="-46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="-32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="-46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="-32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="0" cy="46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="46" cy="0" r="5" fill="currentColor"/>
-              </svg>
-            </span>
           </button>
           <div class="nav-sep"><div class="sep-eum"><span></span><span></span></div></div>
           <button class="nav-link">
-            <span class="nav-label">photos</span>
-            <span class="nav-logo-hover">
-              <svg viewBox="-90 -90 180 180" width="28" height="28">
-                <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-                <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-                <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.2"/>
-                <circle cx="46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="0" cy="-46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="-32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="-46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="-32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="0" cy="46" r="5" fill="currentColor"/>
+            <span class="nav-icon">
+              <svg viewBox="-90 -90 180 180" width="33" height="33">
+                <circle cx="0" cy="0" r="33" fill="none" stroke="#444441" stroke-width="1.5" opacity="0.5"/>
+                <circle cx="0" cy="0" r="16" fill="none" stroke="#444441" stroke-width="1.5" opacity="0.5"/>
+                <circle cx="0" cy="0" r="3" fill="#444441" opacity="0.3"/>
+                <circle cx="46" cy="0" r="3" fill="#888780" opacity="0.5"/><circle cx="32.5" cy="-32.5" r="3" fill="#888780" opacity="0.5"/><circle cx="0" cy="-46" r="3" fill="#888780" opacity="0.5"/><circle cx="-32.5" cy="-32.5" r="3" fill="#888780" opacity="0.5"/><circle cx="-46" cy="0" r="3" fill="#888780" opacity="0.5"/><circle cx="-32.5" cy="32.5" r="3" fill="#888780" opacity="0.5"/><circle cx="32.5" cy="32.5" r="3" fill="#888780" opacity="0.5"/>
+                <circle cx="0" cy="46" r="9" fill="#7F77DD" opacity="0.15"/><circle cx="0" cy="46" r="6" fill="#7F77DD" opacity="0.4"/><circle cx="0" cy="46" r="3.5" fill="#7F77DD"/>
               </svg>
             </span>
+            <span class="nav-label">photos</span>
           </button>
           <div class="nav-sep"><div class="sep-yang"></div></div>
           <button class="nav-link">
-            <span class="nav-label">books</span>
-            <span class="nav-logo-hover">
-              <svg viewBox="-90 -90 180 180" width="28" height="28">
-                <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-                <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-                <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.2"/>
-                <circle cx="46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="0" cy="-46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="-32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="-32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="0" cy="46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="-46" cy="0" r="5" fill="currentColor"/>
+            <span class="nav-icon">
+              <svg viewBox="-90 -90 180 180" width="33" height="33">
+                <circle cx="0" cy="0" r="33" fill="none" stroke="#444441" stroke-width="1.5" opacity="0.5"/>
+                <circle cx="0" cy="0" r="16" fill="none" stroke="#444441" stroke-width="1.5" opacity="0.5"/>
+                <circle cx="0" cy="0" r="3" fill="#444441" opacity="0.3"/>
+                <circle cx="46" cy="0" r="3" fill="#888780" opacity="0.5"/><circle cx="32.5" cy="-32.5" r="3" fill="#888780" opacity="0.5"/><circle cx="0" cy="-46" r="3" fill="#888780" opacity="0.5"/><circle cx="-32.5" cy="-32.5" r="3" fill="#888780" opacity="0.5"/><circle cx="-32.5" cy="32.5" r="3" fill="#888780" opacity="0.5"/><circle cx="0" cy="46" r="3" fill="#888780" opacity="0.5"/><circle cx="32.5" cy="32.5" r="3" fill="#888780" opacity="0.5"/>
+                <circle cx="-46" cy="0" r="9" fill="#7F77DD" opacity="0.15"/><circle cx="-46" cy="0" r="6" fill="#7F77DD" opacity="0.4"/><circle cx="-46" cy="0" r="3.5" fill="#7F77DD"/>
               </svg>
             </span>
+            <span class="nav-label">books</span>
           </button>
           <div class="nav-sep"><div class="sep-eum"><span></span><span></span></div></div>
           <button class="nav-link">
-            <span class="nav-label">thoughts</span>
-            <span class="nav-logo-hover">
-              <svg viewBox="-90 -90 180 180" width="28" height="28">
-                <circle cx="0" cy="0" r="33" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-                <circle cx="0" cy="0" r="16" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
-                <circle cx="0" cy="0" r="5" fill="currentColor" opacity="0.2"/>
-                <circle cx="46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="-32.5" cy="-32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="-46" cy="0" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="-32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="0" cy="46" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="32.5" cy="32.5" r="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-                <circle cx="0" cy="-46" r="5" fill="currentColor"/>
+            <span class="nav-icon">
+              <svg viewBox="-90 -90 180 180" width="33" height="33">
+                <circle cx="0" cy="0" r="33" fill="none" stroke="#444441" stroke-width="1.5" opacity="0.5"/>
+                <circle cx="0" cy="0" r="16" fill="none" stroke="#444441" stroke-width="1.5" opacity="0.5"/>
+                <circle cx="0" cy="0" r="3" fill="#444441" opacity="0.3"/>
+                <circle cx="46" cy="0" r="3" fill="#888780" opacity="0.5"/><circle cx="32.5" cy="-32.5" r="3" fill="#888780" opacity="0.5"/><circle cx="-32.5" cy="-32.5" r="3" fill="#888780" opacity="0.5"/><circle cx="-46" cy="0" r="3" fill="#888780" opacity="0.5"/><circle cx="-32.5" cy="32.5" r="3" fill="#888780" opacity="0.5"/><circle cx="0" cy="46" r="3" fill="#888780" opacity="0.5"/><circle cx="32.5" cy="32.5" r="3" fill="#888780" opacity="0.5"/>
+                <circle cx="0" cy="-46" r="9" fill="#7F77DD" opacity="0.15"/><circle cx="0" cy="-46" r="6" fill="#7F77DD" opacity="0.4"/><circle cx="0" cy="-46" r="3.5" fill="#7F77DD"/>
               </svg>
             </span>
+            <span class="nav-label">thoughts</span>
           </button>
         </div>
         <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
@@ -214,20 +229,12 @@ const posts = (await getCollection('blog')).sort(
         <button class="mobile-menu-link">thoughts</button>
       </div>
 
-      <div class="hero">
-        <div class="hero-left">
-          <p class="hero-eyebrow">personal archive — est. 2025</p>
-          <h1 class="hero-title">기록,<br><em>그리고</em><br>생각들.</h1>
-        </div>
-        <div class="hero-right">
-          <p class="hero-desc">박물관을 돌아다니며 찍어온 사진들, 누나에게 받은 명화 엽서들, 코드로 만들어낸 것들, 읽고 난 책의 흔적들.<br><br>누가 보지 않아도 괜찮다.</p>
-          <div class="hero-tags">
-            <span class="hero-tag">vibe coding</span>
-            <span class="hero-tag">photos</span>
-            <span class="hero-tag">books</span>
-            <span class="hero-tag">thoughts</span>
-          </div>
-        </div>
+      <!-- 슬라이더 -->
+      <div class="slider-wrap">
+        <div class="slides-track" id="track"></div>
+        <button class="arrow left" id="prev">←</button>
+        <button class="arrow right" id="next">→</button>
+        <div class="dots" id="dots"></div>
       </div>
 
       <div class="section">
@@ -267,6 +274,90 @@ const posts = (await getCollection('blog')).sort(
     </div>
 
     <script>
+      // ─── 데이터 ───────────────────────────────────────────
+      // 이미지: public/calligraphy/ 폴더에 넣으세요
+      const IMAGES = [
+        '/calligraphy/image-1.jpg',
+        '/calligraphy/image-2.jpg',
+        '/calligraphy/image-3.jpg',
+        '/calligraphy/image-4.jpg',
+        '/calligraphy/image-5.jpg',
+      ];
+
+      // 아포리즘: 나중에 하나씩 갈아끼우세요
+      const TEXTS = [
+        { kr: '누가 보지 않아도\n괜찮다.', en: 'It is enough to see, even unseen.' },
+        { kr: '기록은\n기억보다 오래 산다.', en: 'The record outlives the memory.' },
+        { kr: '변하는 것 안에\n변하지 않는 것이 있다.', en: 'Within change, that which does not change.' },
+        { kr: '가장 단순한 것이\n가장 오래 남는다.', en: 'The simplest things endure the longest.' },
+        { kr: '빛은 그림자가\n있어야 보인다.', en: 'Light is only seen where shadow falls.' },
+        { kr: '보는 것은\n이미 기억하는 것이다.', en: 'To see is already to remember.' },
+        { kr: '침묵도\n하나의 언어다.', en: 'Silence too is a language.' },
+        { kr: '아름다움은 설명하지 않아도\n전해진다.', en: 'Beauty needs no explanation to be felt.' },
+        { kr: '지나간 것들이\n현재를 만든다.', en: 'What has passed makes the present.' },
+        { kr: '작은 것들이 모여\n큰 것이 된다.', en: 'Small things gathered become something great.' },
+      ];
+
+      const LAYOUTS = ['layout-a', 'layout-b', 'layout-c'];
+      const TOTAL = 5;
+
+      // ─── 랜덤 유틸 ───────────────────────────────────────
+      function shuffle(arr) {
+        return [...arr].sort(() => Math.random() - 0.5);
+      }
+      function pick(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
+
+      // ─── 슬라이드 생성 ───────────────────────────────────
+      const track = document.getElementById('track');
+      const dotsWrap = document.getElementById('dots');
+      const shuffledTexts = shuffle(TEXTS);
+
+      for (let i = 0; i < TOTAL; i++) {
+        const img = IMAGES[i];
+        const text = shuffledTexts[i % shuffledTexts.length];
+        const layout = pick(LAYOUTS);
+        const kr = text.kr.replace('\n', '<br>');
+
+        const slide = document.createElement('div');
+        slide.className = `slide ${layout}`;
+        slide.innerHTML = `
+          <div class="slide-img">
+            <img src="${img}" alt="서예 ${i + 1}" onerror="this.style.display='none'">
+          </div>
+          <div class="slide-text">
+            <span class="kr">${kr}</span>
+            <span class="en">${text.en}</span>
+            <span class="meta">jc archive</span>
+          </div>
+        `;
+        track.appendChild(slide);
+
+        const dot = document.createElement('div');
+        dot.className = `dot${i === 0 ? ' active' : ''}`;
+        dot.dataset.i = i;
+        dotsWrap.appendChild(dot);
+      }
+
+      // ─── 슬라이더 로직 ───────────────────────────────────
+      let current = 0;
+
+      function goTo(i) {
+        current = (i + TOTAL) % TOTAL;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        document.querySelectorAll('.dot').forEach((d, idx) =>
+          d.classList.toggle('active', idx === current)
+        );
+      }
+
+      document.getElementById('prev').addEventListener('click', () => goTo(current - 1));
+      document.getElementById('next').addEventListener('click', () => goTo(current + 1));
+      dotsWrap.addEventListener('click', e => {
+        if (e.target.classList.contains('dot')) goTo(+e.target.dataset.i);
+      });
+
+      // ─── 햄버거 ──────────────────────────────────────────
       const btn = document.getElementById('hamburger');
       const menu = document.getElementById('mobile-menu');
       btn.addEventListener('click', () => menu.classList.toggle('open'));

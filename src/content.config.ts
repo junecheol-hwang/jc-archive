@@ -12,6 +12,7 @@ const blog = defineCollection({
       updatedDate: z.coerce.date().optional(),
       heroImage: z.optional(image()),
       category: z.string().optional(),
+      template: z.enum(['A', 'B', 'C', 'D']).optional().default('A'),
     }),
 });
 
