@@ -1,0 +1,4394 @@
+{
+  "meta": {
+    "title": "도반의 여정",
+    "subtitle": "가장 먼 여행 — 머리에서 가슴으로",
+    "total": 480
+  },
+  "phases": [
+    {
+      "id": 1,
+      "name": "우주론",
+      "subtitle": "태극은 양의를 생하고",
+      "count": 7
+    },
+    {
+      "id": 2,
+      "name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다",
+      "count": 36
+    },
+    {
+      "id": 3,
+      "name": "생명의 진화",
+      "subtitle": "관계론적 세계관",
+      "count": 46
+    },
+    {
+      "id": 4,
+      "name": "인류의 역사",
+      "subtitle": "오래된 미래",
+      "count": 128
+    },
+    {
+      "id": 5,
+      "name": "뇌과학",
+      "subtitle": "프로메테우스의 저주",
+      "count": 31
+    },
+    {
+      "id": 6,
+      "name": "철학",
+      "subtitle": "세계 인식의 틀",
+      "count": 82
+    },
+    {
+      "id": 7,
+      "name": "시·소설",
+      "subtitle": "구체에서 추상으로",
+      "count": 94
+    },
+    {
+      "id": 8,
+      "name": "여백",
+      "subtitle": "Potentiality",
+      "count": 56
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "title": "최초의 3분",
+      "author": "스티븐 와인버그",
+      "publisher": "양문",
+      "phase": 1,
+      "phase_name": "우주론",
+      "subtitle": "태극은 양의를 생하고"
+    },
+    {
+      "id": 2,
+      "title": "엘러건트 유니버스",
+      "author": "브라이언 그린",
+      "publisher": "승산",
+      "phase": 1,
+      "phase_name": "우주론",
+      "subtitle": "태극은 양의를 생하고"
+    },
+    {
+      "id": 3,
+      "title": "코스모스 (COSMOS)",
+      "author": "칼 세이건",
+      "publisher": "사이언스북스",
+      "phase": 1,
+      "phase_name": "우주론",
+      "subtitle": "태극은 양의를 생하고"
+    },
+    {
+      "id": 4,
+      "title": "10의 제곱수",
+      "author": "필립 모리슨 외",
+      "publisher": "사이언스북스",
+      "phase": 1,
+      "phase_name": "우주론",
+      "subtitle": "태극은 양의를 생하고"
+    },
+    {
+      "id": 5,
+      "title": "갈릴레오가 들려주는 별 이야기",
+      "author": "갈릴레오 갈릴레이",
+      "publisher": "지학사",
+      "phase": 1,
+      "phase_name": "우주론",
+      "subtitle": "태극은 양의를 생하고"
+    },
+    {
+      "id": 6,
+      "title": "마지막 3분",
+      "author": "폴 데이비스",
+      "publisher": "북스토리",
+      "phase": 1,
+      "phase_name": "우주론",
+      "subtitle": "태극은 양의를 생하고"
+    },
+    {
+      "id": 7,
+      "title": "거의 모든 것의 역사",
+      "author": "빌 브라이슨",
+      "publisher": "까치",
+      "phase": 1,
+      "phase_name": "우주론",
+      "subtitle": "태극은 양의를 생하고"
+    },
+    {
+      "id": 8,
+      "title": "원소 (The Elements)",
+      "author": "테어도어 그레이",
+      "publisher": "웅진지식하우스",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 9,
+      "title": "주기율표를 읽는 시간",
+      "author": "장홍제",
+      "publisher": "동아시아",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 10,
+      "title": "일곱 원소 이야기",
+      "author": "에릭 셰리",
+      "publisher": "소소의책",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 11,
+      "title": "주기율표로 세상을 읽다",
+      "author": "요시다 다카요시",
+      "publisher": "해나무",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 12,
+      "title": "원소 이야기",
+      "author": "팀 제임스",
+      "publisher": "반니",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 13,
+      "title": "보이는 세상은 실재가 아니다",
+      "author": "카를로 로벨리",
+      "publisher": "쌤앤파커스",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 14,
+      "title": "양자역학의 역사",
+      "author": "데이비드 린들리",
+      "publisher": "사이언스북스",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 15,
+      "title": "파인만의 여섯가지 물리 이야기",
+      "author": "리처드 파인만",
+      "publisher": "승산",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 16,
+      "title": "세계를 바꾼 17가지 방정식",
+      "author": "이언 스튜어트",
+      "publisher": "사이언스북스",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 17,
+      "title": "유클리드 원론 1",
+      "author": "유클리드",
+      "publisher": "아카넷",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 18,
+      "title": "유클리드 원론 2",
+      "author": "유클리드",
+      "publisher": "아카넷",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 19,
+      "title": "수학사 강의",
+      "author": "이언 스튜어트",
+      "publisher": "반니",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 20,
+      "title": "수학의 역사",
+      "author": "지즈강",
+      "publisher": "더숲",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 21,
+      "title": "허수",
+      "author": "배리 마주르",
+      "publisher": "승산",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 22,
+      "title": "수학의 정석 수학(상)",
+      "author": "홍성대",
+      "publisher": "성지출판",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 23,
+      "title": "수학 최고의 신비를 찾아",
+      "author": "마커스 드 사토이",
+      "publisher": "휴머니스트",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 24,
+      "title": "가장 쉬운 통계학 입문",
+      "author": "고지마 히로유키",
+      "publisher": "세종서적",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 25,
+      "title": "다시 확률 통계 확률편",
+      "author": "고지마 히로유키",
+      "publisher": "길벗",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 26,
+      "title": "다시 확률 통계 통계편",
+      "author": "고지마 히로유키",
+      "publisher": "길벗",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 27,
+      "title": "아름다움은 왜 진리인가",
+      "author": "이언 스튜어트",
+      "publisher": "승산",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 28,
+      "title": "수학의 파노라마",
+      "author": "클리퍼드 픽오버",
+      "publisher": "사이언스북스",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 29,
+      "title": "암산이 빨라지는 인도 베다수학",
+      "author": "인도수학연구회",
+      "publisher": "보누스",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 30,
+      "title": "위대한 수학 문제들",
+      "author": "이언 스튜어트",
+      "publisher": "반니",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 31,
+      "title": "자연의 수학적 열쇠 피보나치 수열",
+      "author": "이광연",
+      "publisher": "성림원북스",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 32,
+      "title": "수학의 수학",
+      "author": "김민형",
+      "publisher": "은행나무",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 33,
+      "title": "수학의 노벨상 필즈상 이야기",
+      "author": "김원기",
+      "publisher": "살림Friends",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 34,
+      "title": "페르마의 마지막 정리",
+      "author": "아미르 액셀",
+      "publisher": "휘슬러",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 35,
+      "title": "다빈치처럼 과학하라",
+      "author": "프리초프 카프라",
+      "publisher": "김영사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 36,
+      "title": "진화하는 물",
+      "author": "제럴드 폴락",
+      "publisher": "동아시아",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 37,
+      "title": "암호의 세계",
+      "author": "루돌프 키펜한",
+      "publisher": "이지북",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 38,
+      "title": "이야기로 아주 쉽게 배우는 대수학",
+      "author": "더글러스 다우닝",
+      "publisher": "이지북",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 39,
+      "title": "이야기로 아주 쉽게 배우는 삼각함수",
+      "author": "더글러스 다우닝",
+      "publisher": "이지북",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 40,
+      "title": "이야기로 아주 쉽게 배우는 미적분",
+      "author": "더글러스 다우닝",
+      "publisher": "이지북",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 41,
+      "title": "지식의 원전",
+      "author": "존 캐리",
+      "publisher": "바다출판사",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 43,
+      "title": "지구 자성",
+      "author": "윌리스 홀 캠벨",
+      "publisher": "(알 수 없음)",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 44,
+      "title": "지질 시대",
+      "author": "황금로",
+      "publisher": "(알 수 없음)",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 45,
+      "title": "지구 이야기",
+      "author": "로버트 M. 헤이즌",
+      "publisher": "뿌리와이파리",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 46,
+      "title": "탄소 교향곡",
+      "author": "로버트 M. 헤이즌",
+      "publisher": "뿌리와이파리",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 47,
+      "title": "마이크로코스모스",
+      "author": "린 마굴리스 외",
+      "publisher": "까치",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 48,
+      "title": "조상 이야기",
+      "author": "리처드 도킨스 외",
+      "publisher": "까치",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 49,
+      "title": "삼엽충",
+      "author": "리처드 포티",
+      "publisher": "뿌리와이파리",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 50,
+      "title": "공룡 오디세이",
+      "author": "스콧 샘슨",
+      "publisher": "뿌리와이파리",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 51,
+      "title": "판구조론",
+      "author": "김경렬",
+      "publisher": "생각의힘",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 52,
+      "title": "한반도 자연사 기행",
+      "author": "조홍섭",
+      "publisher": "한겨레출판",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 53,
+      "title": "스포츠로 만나는 지리",
+      "author": "최재희",
+      "publisher": "(알 수 없음)",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 54,
+      "title": "지구의 깊은 역사",
+      "author": "마틴 러드윅",
+      "publisher": "(알 수 없음)",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 55,
+      "title": "얼음의 나이",
+      "author": "오코우치 나오히코",
+      "publisher": "계단",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 56,
+      "title": "지구 격동의 이력서 암석 25",
+      "author": "도널드 R. 프로테로",
+      "publisher": "뿌리와이파리",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 57,
+      "title": "지구의 미스터리",
+      "author": "내셔널 지오그래픽",
+      "publisher": "(알 수 없음)",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 58,
+      "title": "미토콘드리아",
+      "author": "닉 레인",
+      "publisher": "뿌리와이파리",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 59,
+      "title": "잃어버린 게놈을 찾아서",
+      "author": "스반테 페보",
+      "publisher": "부키",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 60,
+      "title": "내 안의 물고기",
+      "author": "닐 슈빈",
+      "publisher": "김영사",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 61,
+      "title": "이중나선",
+      "author": "제임스 D. 왓슨",
+      "publisher": "전파과학사",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 62,
+      "title": "트랜스포머",
+      "author": "닉 레인",
+      "publisher": "까치",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 63,
+      "title": "이보디보 생명의 블랙박스를 열다",
+      "author": "션 B. 캐럴",
+      "publisher": "(알 수 없음)",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 64,
+      "title": "생명은 어떻게 작동하는가",
+      "author": "박문호",
+      "publisher": "(알 수 없음)",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 65,
+      "title": "세포의 세계",
+      "author": "제프 하딘 외",
+      "publisher": "PEARSON",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 66,
+      "title": "루소의 식물학 강의",
+      "author": "장 자크 루소",
+      "publisher": "(알 수 없음)",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 67,
+      "title": "꽃 해부 도감",
+      "author": "김승현",
+      "publisher": "자연과생태",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 68,
+      "title": "꽃은 어떻게 세상을 바꿨을까?",
+      "author": "윌리엄 C. 버거",
+      "publisher": "(알 수 없음)",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 69,
+      "title": "딱정벌레의 세계",
+      "author": "아서 V. 에반스 외",
+      "publisher": "까치",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 70,
+      "title": "경이로운 생명",
+      "author": "팀 톨레나르",
+      "publisher": "(알 수 없음)",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 71,
+      "title": "우리들의 오래된 동반자",
+      "author": "정춘호",
+      "publisher": "(알 수 없음)",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 72,
+      "title": "성게 메뚜기 불가사리가 그렇게 생긴 이유",
+      "author": "모토카와 다쓰오",
+      "publisher": "뿌리와이파리",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 73,
+      "title": "한국 개미 사전",
+      "author": "류동표",
+      "publisher": "(알 수 없음)",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 74,
+      "title": "대멸종",
+      "author": "마이클 J. 벤턴",
+      "publisher": "뿌리와이파리",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 75,
+      "title": "노래하는 네안데르탈인",
+      "author": "스티븐 미슨",
+      "publisher": "뿌리와이파리",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 76,
+      "title": "걷는 고래",
+      "author": "J.G.M 한스 테비슨",
+      "publisher": "뿌리와이파리",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 77,
+      "title": "페니스 그 진화와 신화",
+      "author": "에밀리 윌링엄",
+      "publisher": "뿌리와이파리",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 78,
+      "title": "종의 기원",
+      "author": "찰스 다윈",
+      "publisher": "사이언스북스",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 79,
+      "title": "지도로 읽는 아시아",
+      "author": "장 크리스토프 빅토르 외",
+      "publisher": "시공사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 80,
+      "title": "한글 대동여지도",
+      "author": "최선웅 도편",
+      "publisher": "진선출판사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 81,
+      "title": "사회과 부도 (중학)",
+      "author": "(교과서)",
+      "publisher": "천재교육",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 82,
+      "title": "고지도의 비밀",
+      "author": "류강",
+      "publisher": "글항아리",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 83,
+      "title": "택리지",
+      "author": "이중환",
+      "publisher": "올재",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 84,
+      "title": "이토록 괭장한 세계",
+      "author": "에드 용",
+      "publisher": "어크로스",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 85,
+      "title": "우리는 왜 죽는가",
+      "author": "벤키 라마크리슈난",
+      "publisher": "김영사",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 86,
+      "title": "뇌를 비롯한 신체기관에 숨겨진 진화의 비밀",
+      "author": "앨리스 로버츠",
+      "publisher": "소와당",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 87,
+      "title": "오해의 동물원",
+      "author": "루시 쿡",
+      "publisher": "곰출판",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 88,
+      "title": "교양으로 읽는 세계 과학사 지도",
+      "author": "쑨자오룬",
+      "publisher": "시그마북스",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 89,
+      "title": "환단고기",
+      "author": "안경전",
+      "publisher": "상생출판",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 90,
+      "title": "안인희의 북유럽 신화 1",
+      "author": "안인희",
+      "publisher": "웅진지식하우스",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 91,
+      "title": "안인희의 북유럽 신화 3",
+      "author": "안인희",
+      "publisher": "웅진지식하우스",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 92,
+      "title": "도해 북유럽 신화",
+      "author": "이케가미 료타",
+      "publisher": "AK Trivia Book",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 93,
+      "title": "그림이 있는 북유럽 신화",
+      "author": "김원익",
+      "publisher": "지식서재",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 94,
+      "title": "한 권으로 읽는 북유럽 신화",
+      "author": "안인희",
+      "publisher": "RHK",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 95,
+      "title": "그리스 로마 신화",
+      "author": "토마스 불핀치",
+      "publisher": "빛과희망",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 96,
+      "title": "최초의 신화 길가메쉬 서사시",
+      "author": "김산해",
+      "publisher": "휴머니스트",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 97,
+      "title": "사피엔스",
+      "author": "유발 하라리",
+      "publisher": "김영사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 98,
+      "title": "인류 본사",
+      "author": "이희수",
+      "publisher": "휴머니스트",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 99,
+      "title": "인류 최초의 문명과 이스라엘",
+      "author": "주원준",
+      "publisher": "SNU PRESS",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 100,
+      "title": "처음 읽는 아프리카의 역사",
+      "author": "루츠 판 다이크",
+      "publisher": "웅진지식하우스",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 101,
+      "title": "이집트역사 다이제스트 100",
+      "author": "손주영 외",
+      "publisher": "가람기획",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 102,
+      "title": "그리스사",
+      "author": "맥 세계사편찬위원회",
+      "publisher": "느낌이있는책",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 103,
+      "title": "고대 그리스사",
+      "author": "토마스 R. 마틴",
+      "publisher": "책과함께",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 104,
+      "title": "신화와 축제의 땅 그리스 문명 기행",
+      "author": "박경철",
+      "publisher": "리더스북",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 105,
+      "title": "그리스에 길을 묻다",
+      "author": "이윤기",
+      "publisher": "해냄",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 106,
+      "title": "고대 로마사",
+      "author": "토마스 R. 마틴",
+      "publisher": "책과함께",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 107,
+      "title": "만화 로마사 1",
+      "author": "이익선",
+      "publisher": "(알 수 없음)",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 108,
+      "title": "만화 로마사 2",
+      "author": "이익선",
+      "publisher": "(알 수 없음)",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 109,
+      "title": "중세의 사람들",
+      "author": "아일린 파워",
+      "publisher": "이산",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 110,
+      "title": "중세의 가을",
+      "author": "요한 하위징아",
+      "publisher": "동서문화사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 111,
+      "title": "독일사 산책",
+      "author": "닐 맥그리거",
+      "publisher": "옥당",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 112,
+      "title": "새로 쓴 독일 역사",
+      "author": "하겐 슐체",
+      "publisher": "(알 수 없음)",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 113,
+      "title": "이란-페르시아 바람의 길을 걷다",
+      "author": "김중식",
+      "publisher": "문학세계사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 114,
+      "title": "아틀라스 중앙유라시아사",
+      "author": "김호동",
+      "publisher": "사계절",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 115,
+      "title": "몽골제국과 세계사의 탄생",
+      "author": "김호동",
+      "publisher": "돌베개",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 116,
+      "title": "몽골제국의 후예들",
+      "author": "이주엽",
+      "publisher": "책과함께",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 117,
+      "title": "세계사를 뒤흔든 황금 천막의 제국",
+      "author": "마리 파브로",
+      "publisher": "까치",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 118,
+      "title": "도시의 세계사",
+      "author": "데구치 하루아키",
+      "publisher": "문학사상",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 119,
+      "title": "호기심의 권력으로 읽는 세계사",
+      "author": "효기심",
+      "publisher": "(알 수 없음)",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 120,
+      "title": "거의 모든 전쟁의 역사",
+      "author": "제러미 블랙",
+      "publisher": "서해문집",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 121,
+      "title": "유럽을 만든 사람들",
+      "author": "현경병",
+      "publisher": "(알 수 없음)",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 122,
+      "title": "고조선 단군 부여",
+      "author": "고구려연구재단",
+      "publisher": "고구려연구재단",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 123,
+      "title": "삼국유사",
+      "author": "일연",
+      "publisher": "을유문화사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 124,
+      "title": "삼국사기 1",
+      "author": "김부식",
+      "publisher": "올재",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 125,
+      "title": "사진과 그림으로 보는 삼국사기",
+      "author": "김부식 원저",
+      "publisher": "(알 수 없음)",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 126,
+      "title": "신라의 역사 1",
+      "author": "이종욱",
+      "publisher": "김영사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 127,
+      "title": "신라의 역사 2",
+      "author": "이종욱",
+      "publisher": "김영사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 128,
+      "title": "로마문화 왕국 신라",
+      "author": "요시미즈 츠네오",
+      "publisher": "학고재",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 129,
+      "title": "경주의 탄생",
+      "author": "이기봉",
+      "publisher": "푸른역사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 130,
+      "title": "한 권으로 읽는 신라왕조실록",
+      "author": "박영규",
+      "publisher": "웅진지식하우스",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 131,
+      "title": "발해고",
+      "author": "유득공",
+      "publisher": "홍익출판사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 132,
+      "title": "한국사 4",
+      "author": "(한길사)",
+      "publisher": "한길사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 133,
+      "title": "하룻밤에 읽는 고려사",
+      "author": "최용범",
+      "publisher": "중앙M&B",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 134,
+      "title": "조선시대 사람들은 어떻게 살았을까 1",
+      "author": "청년학술",
+      "publisher": "청년사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 135,
+      "title": "조선왕조사 전",
+      "author": "김경수",
+      "publisher": "(알 수 없음)",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 136,
+      "title": "뜻밖의 한국사",
+      "author": "김경훈",
+      "publisher": "(알 수 없음)",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 137,
+      "title": "HD역사스페셜 1",
+      "author": "KBS 원작",
+      "publisher": "효형출판",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 138,
+      "title": "HD역사스페셜 2",
+      "author": "KBS 원작",
+      "publisher": "효형출판",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 139,
+      "title": "HD역사스페셜 3",
+      "author": "KBS 원작",
+      "publisher": "효형출판",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 140,
+      "title": "일본사 다이제스트 100",
+      "author": "정혜선",
+      "publisher": "가람기획",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 141,
+      "title": "피라미드 (PYRAMID)",
+      "author": "데이비드 맥컬레이",
+      "publisher": "(알 수 없음)",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 142,
+      "title": "우리가 정말 알아야 할 우리 옛그릇 백가지",
+      "author": "(알 수 없음)",
+      "publisher": "(알 수 없음)",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 143,
+      "title": "조선시대의 음식문화",
+      "author": "김상보",
+      "publisher": "가람기획",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 144,
+      "title": "식탁 위의 세계사",
+      "author": "이영숙",
+      "publisher": "창비",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 145,
+      "title": "누들",
+      "author": "크리스토프 나이트하르트",
+      "publisher": "시공사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 146,
+      "title": "음식으로 읽는 한국 생활사",
+      "author": "윤덕노",
+      "publisher": "깊은나무",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 147,
+      "title": "유성룡",
+      "author": "이덕일",
+      "publisher": "위즈덤하우스",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 148,
+      "title": "한중록",
+      "author": "혜경궁 홍씨",
+      "publisher": "서해문집",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 149,
+      "title": "징비록",
+      "author": "서애 유성룡",
+      "publisher": "위즈덤하우스",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 150,
+      "title": "한국사를 보는 눈",
+      "author": "이기백",
+      "publisher": "문학과지성사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 151,
+      "title": "한국근대사",
+      "author": "강만길",
+      "publisher": "창작과비평사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 152,
+      "title": "다시 쓰는 한국현대사",
+      "author": "이윤섭",
+      "publisher": "평단",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 153,
+      "title": "해방전후사의 인식 1",
+      "author": "송건호 외",
+      "publisher": "한길사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 154,
+      "title": "해방전후사의 인식 2",
+      "author": "강만길 외",
+      "publisher": "한길사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 155,
+      "title": "해방전후사의 인식 3",
+      "author": "박현채 외",
+      "publisher": "한길사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 156,
+      "title": "해방전후사의 인식 4",
+      "author": "정해구 외",
+      "publisher": "한길사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 157,
+      "title": "해방전후사의 인식 5",
+      "author": "김남식 외",
+      "publisher": "한길사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 158,
+      "title": "해방전후사의 인식 6",
+      "author": "박명림 외",
+      "publisher": "한길사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 159,
+      "title": "우린 너무 몰랐다",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 160,
+      "title": "6·25 전쟁 1129일",
+      "author": "이중근",
+      "publisher": "우정문고",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 161,
+      "title": "잡동산이 현대사 1",
+      "author": "전우용",
+      "publisher": "돌베개",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 162,
+      "title": "잡동산이 현대사 2",
+      "author": "전우용",
+      "publisher": "돌베개",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 163,
+      "title": "잡동산이 현대사 3",
+      "author": "전우용",
+      "publisher": "돌베개",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 164,
+      "title": "제국주의론",
+      "author": "J.A. 홉슨",
+      "publisher": "창작과비평사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 165,
+      "title": "부처 통곡하다",
+      "author": "정동주",
+      "publisher": "이름",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 166,
+      "title": "문명의 충돌",
+      "author": "새뮤얼 헌팅턴",
+      "publisher": "김영사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 167,
+      "title": "고고학 강의",
+      "author": "콜린 렌프루 외",
+      "publisher": "사회평론",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 168,
+      "title": "도올의 중국일기 1",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 169,
+      "title": "도올의 중국일기 2",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 170,
+      "title": "도올의 중국일기 3",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 171,
+      "title": "도올의 중국일기 4",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 172,
+      "title": "도올의 중국일기 5",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 173,
+      "title": "진시황제의 무덤",
+      "author": "쑨옌",
+      "publisher": "크림슨",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 174,
+      "title": "썬킴의 거침없는 중국사",
+      "author": "썬킴",
+      "publisher": "지식의숲",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 175,
+      "title": "하룻밤에 읽는 중국사",
+      "author": "이재정",
+      "publisher": "중앙M&B",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 176,
+      "title": "중국사람들은 어떻게 살았을까",
+      "author": "이광재",
+      "publisher": "지영사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 177,
+      "title": "대결",
+      "author": "황인 편저",
+      "publisher": "시그마북스",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 178,
+      "title": "손자병법 주해",
+      "author": "손무",
+      "publisher": "여해",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 179,
+      "title": "종횡무진 동양사",
+      "author": "남경태",
+      "publisher": "그린비",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 180,
+      "title": "여왕의 시대",
+      "author": "바이준시",
+      "publisher": "미래의창",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 181,
+      "title": "사기열전",
+      "author": "사마천",
+      "publisher": "서해문집",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 182,
+      "title": "HAGIA SOPHIA AND CHORA",
+      "author": "(영문서)",
+      "publisher": "SILK ROAD",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 183,
+      "title": "THE DUOMO CATHEDRAL OF MILAN",
+      "author": "(영문서)",
+      "publisher": "(알 수 없음)",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 184,
+      "title": "한국 천주교회의 역사",
+      "author": "내포교회사연구소",
+      "publisher": "(알 수 없음)",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 185,
+      "title": "세계 지도로 역사를 읽는다",
+      "author": "타케미츠 마코토",
+      "publisher": "교보문고",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 186,
+      "title": "DEAR YOUNG FRIEND",
+      "author": "WEINTRAUB",
+      "publisher": "STACKPOLE BOOKS",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 187,
+      "title": "십자군 이야기 1",
+      "author": "시오노 나나미",
+      "publisher": "문학동네",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 188,
+      "title": "십자군 이야기 2",
+      "author": "시오노 나나미",
+      "publisher": "문학동네",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 189,
+      "title": "십자군 이야기 3",
+      "author": "시오노 나나미",
+      "publisher": "문학동네",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 190,
+      "title": "도올문집 4: 삼봉 정도전의 건국철학",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 191,
+      "title": "만해 한용운 - 도올이 부른다 1",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 192,
+      "title": "만해 한용운 - 도올이 부른다 2",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 193,
+      "title": "새 시대의 새 지도자 몽양 여운형",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 194,
+      "title": "인간으로 살고싶다",
+      "author": "이상경",
+      "publisher": "한길사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 195,
+      "title": "어쩌다 한국인",
+      "author": "허태균",
+      "publisher": "중앙북스",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 196,
+      "title": "신은 왜 우리 곁을 떠나지 않는가",
+      "author": "앤드루 뉴버그 외",
+      "publisher": "문학의숲",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 197,
+      "title": "한없이 사악하고 더없이 관대한 인간 본성",
+      "author": "리처드 랭엄",
+      "publisher": "21세기북스",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 198,
+      "title": "생각의 탄생",
+      "author": "로버트 루트번스타인 외",
+      "publisher": "에코의서재",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 199,
+      "title": "나는 그림으로 생각한다",
+      "author": "템플 그랜딘",
+      "publisher": "양철북",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 200,
+      "title": "지능의 기원",
+      "author": "맥스 베넷",
+      "publisher": "더퀘스트",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 201,
+      "title": "세컨드 네이처",
+      "author": "제럴드 에델만",
+      "publisher": "(알 수 없음)",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 202,
+      "title": "뇌로부터 마음을 읽는다",
+      "author": "(알 수 없음)",
+      "publisher": "(알 수 없음)",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 203,
+      "title": "아내를 모자로 착각한 남자",
+      "author": "올리버 색스",
+      "publisher": "알마",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 204,
+      "title": "의식의 강",
+      "author": "올리버 색스",
+      "publisher": "알마",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 205,
+      "title": "나는 죽었다고 말하는 남자",
+      "author": "V.S. 라마찬드란",
+      "publisher": "바다출판사",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 206,
+      "title": "제정신이라는 착각",
+      "author": "필립 슈테트리히",
+      "publisher": "(알 수 없음)",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 207,
+      "title": "강박에 빠진 뇌",
+      "author": "제프리 슈워츠",
+      "publisher": "(알 수 없음)",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 208,
+      "title": "당신의 꿈은 우연이 아니다",
+      "author": "안토니오 자드라 외",
+      "publisher": "(알 수 없음)",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 209,
+      "title": "꿈꾸는 기계의 진화",
+      "author": "로돌포 R. 이나스",
+      "publisher": "북센스",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 210,
+      "title": "생각의 출현",
+      "author": "박문호",
+      "publisher": "(알 수 없음)",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 211,
+      "title": "꿈의 인문학",
+      "author": "시다르타 히베이루",
+      "publisher": "흐름출판",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 212,
+      "title": "성격의 탄생",
+      "author": "대니얼 네틀",
+      "publisher": "와이즈베리",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 213,
+      "title": "생각은 어떻게 행동이 되는가",
+      "author": "데이비드 바드르",
+      "publisher": "해나무",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 214,
+      "title": "설득의 심리학",
+      "author": "로버트 치알디니",
+      "publisher": "21세기북스",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 215,
+      "title": "넛지 (Nudge)",
+      "author": "리처드 탈러 외",
+      "publisher": "리더스북",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 216,
+      "title": "전투의 심리학",
+      "author": "데이브 그로스먼 외",
+      "publisher": "열린책들",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 217,
+      "title": "사람을 안다는 것",
+      "author": "데이비드 브룩스",
+      "publisher": "웅진지식하우스",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 218,
+      "title": "어른을 위한 그림 동화 심리 읽기",
+      "author": "오이겐 드레버만",
+      "publisher": "교양인",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 219,
+      "title": "느끼고 아는 존재",
+      "author": "안토니오 다마지오",
+      "publisher": "흐름출판",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 220,
+      "title": "10대의 뇌",
+      "author": "프랜시스 젠슨 외",
+      "publisher": "웅진지식하우스",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 221,
+      "title": "열두 발자국",
+      "author": "정재승",
+      "publisher": "어크로스",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 222,
+      "title": "꿈의 해석",
+      "author": "지그문트 프로이트",
+      "publisher": "열린책들",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 223,
+      "title": "머리를 비우는 뇌과학",
+      "author": "닐스 비르바우머 외",
+      "publisher": "메디치",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 224,
+      "title": "진화하는 언어",
+      "author": "모텐 H. 크리스티안센",
+      "publisher": "웨일북",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 225,
+      "title": "나는 생각이 너무 많아",
+      "author": "크리스텔 프티콜랭",
+      "publisher": "부키",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 226,
+      "title": "존 듀이의 경험과 교육",
+      "author": "존 듀이",
+      "publisher": "원미사",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 227,
+      "title": "긍정의 훈육",
+      "author": "제인 넬슨",
+      "publisher": "에듀니티",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 228,
+      "title": "삶으로서의 은유",
+      "author": "G. 레이코프 외",
+      "publisher": "서광사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 229,
+      "title": "마음 속의 몸",
+      "author": "M. 존슨",
+      "publisher": "철학과현실사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 230,
+      "title": "그렇게 말해주니 공부하고 싶어졌어요",
+      "author": "한혜원",
+      "publisher": "WISDOM HOUSE",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 231,
+      "title": "하루 3줄 초등 글쓰기의 기적",
+      "author": "윤희솔",
+      "publisher": "청림Life",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 232,
+      "title": "피타고라스를 말하다",
+      "author": "욘 스트로마이어 외",
+      "publisher": "(알 수 없음)",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 233,
+      "title": "신화, 인류 최고의 철학",
+      "author": "나카자와 신이치",
+      "publisher": "동아시아",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 234,
+      "title": "곰에서 왕으로",
+      "author": "나카자와 신이치",
+      "publisher": "동아시아",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 235,
+      "title": "황금가지 1",
+      "author": "제임스 조지 프레이저",
+      "publisher": "올재",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 236,
+      "title": "황금가지 2",
+      "author": "제임스 조지 프레이저",
+      "publisher": "올재",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 237,
+      "title": "군주론",
+      "author": "니콜로 마키아벨리",
+      "publisher": "까치",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 238,
+      "title": "색채론",
+      "author": "요한 볼프강 폰 괴테",
+      "publisher": "민음사",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 239,
+      "title": "다산문학선집",
+      "author": "정약용",
+      "publisher": "현대실학사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 240,
+      "title": "다산문학의 재조명",
+      "author": "김상홍",
+      "publisher": "단국대학교 출판부",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 241,
+      "title": "다산실학탐구",
+      "author": "금장태",
+      "publisher": "소학사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 242,
+      "title": "다산시연구",
+      "author": "송재소",
+      "publisher": "창작사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 243,
+      "title": "다산산문선",
+      "author": "정약용",
+      "publisher": "창작과비평사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 244,
+      "title": "다산의 후반생",
+      "author": "차벽",
+      "publisher": "돌베개",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 245,
+      "title": "도올주역강해",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 246,
+      "title": "도올주역계사전",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 247,
+      "title": "도올논어 [1]",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 248,
+      "title": "도올논어 [2]",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 249,
+      "title": "도올논어 [3]",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 250,
+      "title": "중용한글역주",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 251,
+      "title": "도올선생 중용강의",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 252,
+      "title": "중용 인간의 맛",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 253,
+      "title": "맹자 사람의 길 상",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 254,
+      "title": "맹자 사람의 길 하",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 255,
+      "title": "맹자",
+      "author": "맹가",
+      "publisher": "책세상",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 256,
+      "title": "나와 너",
+      "author": "마르틴 부버",
+      "publisher": "문예출판사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 257,
+      "title": "진리의 말씀 법구경",
+      "author": "석지현 옮김",
+      "publisher": "민족사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 258,
+      "title": "우파니샤드",
+      "author": "정창영 편역",
+      "publisher": "범우",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 259,
+      "title": "노자가 옳았다",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 260,
+      "title": "노자와 21세기 [1]",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 261,
+      "title": "노자와 21세기 [2]",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 262,
+      "title": "노자와 21세기 [3]",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 263,
+      "title": "장자",
+      "author": "최호선 역해",
+      "publisher": "고려원",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 264,
+      "title": "장자평전",
+      "author": "왕수미",
+      "publisher": "MIDAS BOOKS",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 265,
+      "title": "묵자",
+      "author": "신동준 역",
+      "publisher": "올재",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 266,
+      "title": "석보상절 제23·24 연구",
+      "author": "김영배",
+      "publisher": "동국대출판부",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 267,
+      "title": "탄허 선사의 사교회통 사상",
+      "author": "문광",
+      "publisher": "민족사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 268,
+      "title": "탄허스님의 선학 강설",
+      "author": "탄허",
+      "publisher": "불광출판사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 269,
+      "title": "벽암록",
+      "author": "안동림 역주",
+      "publisher": "현암사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 270,
+      "title": "달라이라마와 도올의 만남 1",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 271,
+      "title": "달라이라마와 도올의 만남 2",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 272,
+      "title": "달라이라마와 도올의 만남 3",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 273,
+      "title": "동양학 어떻게 할 것인가",
+      "author": "김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 274,
+      "title": "금강경강해",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 275,
+      "title": "화두 혜능과 셰익스피어",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 276,
+      "title": "반야심경에 미치다",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 277,
+      "title": "나는 불교를 이렇게 본다",
+      "author": "김용옥",
+      "publisher": "민음사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 278,
+      "title": "차라투스트라는 이렇게 말했다",
+      "author": "프리드리히 니체",
+      "publisher": "펭귄클래식",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 279,
+      "title": "사는 게 힘드냐고 니체가 물었다",
+      "author": "박찬국",
+      "publisher": "21세기북스",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 280,
+      "title": "비극의 탄생",
+      "author": "프리드리히 니체",
+      "publisher": "열린책들",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 281,
+      "title": "소크라테스의 변명 (플라톤)",
+      "author": "플라톤",
+      "publisher": "올리버",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 282,
+      "title": "소크라테스의 변명 (안광복)",
+      "author": "안광복",
+      "publisher": "사계절",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 283,
+      "title": "현대 물리학과 동양사상",
+      "author": "프리초프 카프라",
+      "publisher": "범양사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 284,
+      "title": "새로운 과학과 문명의 전환",
+      "author": "프리초프 카프라",
+      "publisher": "범양사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 285,
+      "title": "아인슈타인의 우주적 종교와 불교",
+      "author": "김성구",
+      "publisher": "불광출판사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 286,
+      "title": "과학과 종교 사이에서",
+      "author": "김용준",
+      "publisher": "돌베개",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 287,
+      "title": "물질과 기억",
+      "author": "앙리 베르그손",
+      "publisher": "자유문고",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 288,
+      "title": "소학",
+      "author": "주희 외",
+      "publisher": "홍역학연구소",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 289,
+      "title": "채근담",
+      "author": "홍자성",
+      "publisher": "홍역학연구소",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 290,
+      "title": "너와 나의 한의학",
+      "author": "김용옥",
+      "publisher": "통나무",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 291,
+      "title": "자성록/언행록/성학십도",
+      "author": "이황",
+      "publisher": "동서문화사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 292,
+      "title": "청소년을 위한 서양철학사",
+      "author": "박해용",
+      "publisher": "두리미디어",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 293,
+      "title": "기독교성서의 이해",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 294,
+      "title": "요한복음 강해",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 295,
+      "title": "나는 예수입니다",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 296,
+      "title": "도마복음 강해",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 297,
+      "title": "두란노 성경전서",
+      "author": "(성서)",
+      "publisher": "두란노",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 298,
+      "title": "레오나르도 다빈치의 요리 노트",
+      "author": "레오나르도 다 빈치",
+      "publisher": "OXFORD",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 299,
+      "title": "레오나르도 다 빈치",
+      "author": "지그문트 프로이트",
+      "publisher": "여름언덕",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 300,
+      "title": "르네상스 미술가 평전 2",
+      "author": "조르조 바사리",
+      "publisher": "올재",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 301,
+      "title": "르네상스 미술가 평전 1",
+      "author": "조르조 바사리",
+      "publisher": "올재",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 302,
+      "title": "Leonardo: The Complete Drawings",
+      "author": "Johannes Nathan 외",
+      "publisher": "TASCHEN",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 303,
+      "title": "세상의 바보들에게 웃으면서 화내는 방법",
+      "author": "움베르토 에코",
+      "publisher": "열린책들",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 304,
+      "title": "기호학과 언어철학",
+      "author": "움베르토 에코",
+      "publisher": "(알 수 없음)",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 305,
+      "title": "분류의 역사",
+      "author": "알렉스 라이트",
+      "publisher": "(알 수 없음)",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 306,
+      "title": "북학의",
+      "author": "박제가",
+      "publisher": "서해문집",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 307,
+      "title": "말과 사물",
+      "author": "미셸 푸코",
+      "publisher": "민음사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 308,
+      "title": "촛불의 미학",
+      "author": "가스통 바슐라르",
+      "publisher": "문예출판사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 309,
+      "title": "푸냐의 추억",
+      "author": "라즈니쉬",
+      "publisher": "정신세계사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 310,
+      "title": "죽음의 예술, 영원으로 가는 피리소리",
+      "author": "(알 수 없음)",
+      "publisher": "홍원출판사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 311,
+      "title": "법륜 스님의 행복",
+      "author": "법륜",
+      "publisher": "나무의마음",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 312,
+      "title": "내려놓기 기도",
+      "author": "범훈",
+      "publisher": "(알 수 없음)",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 313,
+      "title": "도올문집 2: 독기학설",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 314,
+      "title": "도올문집 3: 혜강 최한기와 유교",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 315,
+      "title": "정의란 무엇인가",
+      "author": "마이클 샌델",
+      "publisher": "김영사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 316,
+      "title": "철학이 필요한 시간",
+      "author": "강신주",
+      "publisher": "사계절",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 317,
+      "title": "임페리움",
+      "author": "로버트 해리스",
+      "publisher": "랜덤하우스",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 318,
+      "title": "딕타토르",
+      "author": "로버트 해리스",
+      "publisher": "RHK",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 319,
+      "title": "캔터베리 이야기",
+      "author": "제프리 초서",
+      "publisher": "동서문화사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 320,
+      "title": "쥐 (MAUS)",
+      "author": "아트 슈피겔만",
+      "publisher": "아름드리미디어",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 321,
+      "title": "화엄경 (장편소설)",
+      "author": "고은",
+      "publisher": "민음사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 322,
+      "title": "당송팔가문",
+      "author": "홍승기 외 엮음",
+      "publisher": "(알 수 없음)",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 323,
+      "title": "시인 (장편소설)",
+      "author": "이문열",
+      "publisher": "미래문학",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 324,
+      "title": "읽어주는 노인 이야기책",
+      "author": "조수삼",
+      "publisher": "보리",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 325,
+      "title": "최초의 모험",
+      "author": "헤르만 헤세",
+      "publisher": "올재",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 326,
+      "title": "크눌프·황야의 이리",
+      "author": "헤르만 헤세",
+      "publisher": "올재",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 327,
+      "title": "젊은 베르테르의 슬픔",
+      "author": "요한 볼프강 폰 괴테",
+      "publisher": "올재",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 328,
+      "title": "스토너",
+      "author": "존 윌리엄스",
+      "publisher": "RHK",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 329,
+      "title": "그리스인 조르바",
+      "author": "니코스 카잔차키스",
+      "publisher": "열린책들",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 330,
+      "title": "장미의 이름 (상)",
+      "author": "움베르토 에코",
+      "publisher": "열린책들",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 331,
+      "title": "장미의 이름 (하)",
+      "author": "움베르토 에코",
+      "publisher": "열린책들",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 332,
+      "title": "불안의 책",
+      "author": "페르난두 페소아",
+      "publisher": "문학동네",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 333,
+      "title": "기형도 전집",
+      "author": "기형도",
+      "publisher": "문학과지성사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 334,
+      "title": "어디선가 나를 찾는 전화벨이 울리고",
+      "author": "신경숙",
+      "publisher": "문학동네",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 335,
+      "title": "그 여름의 끝",
+      "author": "이성복",
+      "publisher": "문학과지성사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 336,
+      "title": "아, 입이 없는 것들",
+      "author": "이성복",
+      "publisher": "문학과지성사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 337,
+      "title": "안 보이는 사랑의 나라",
+      "author": "정현종",
+      "publisher": "문학과지성사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 338,
+      "title": "찬란",
+      "author": "이병률",
+      "publisher": "문학과지성사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 339,
+      "title": "광휘의 속삭임",
+      "author": "이성복",
+      "publisher": "문학과지성사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 340,
+      "title": "지금 알고 있는 걸 그때도 알았더라면",
+      "author": "류시화 엮음",
+      "publisher": "열림원",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 341,
+      "title": "황정견 시선",
+      "author": "황정견",
+      "publisher": "지식을만드는지식",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 342,
+      "title": "이상(李箱) 작품집",
+      "author": "이상",
+      "publisher": "(알 수 없음)",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 343,
+      "title": "톨스토이 단편선집",
+      "author": "레프 톨스토이",
+      "publisher": "오늘의책",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 344,
+      "title": "테스",
+      "author": "토머스 하디",
+      "publisher": "소담출판사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 345,
+      "title": "이방인",
+      "author": "알베르 카뮈",
+      "publisher": "책세상",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 346,
+      "title": "귀여운 여인",
+      "author": "안톤 체호프",
+      "publisher": "시공사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 347,
+      "title": "에밀",
+      "author": "장 자크 루소",
+      "publisher": "(알 수 없음)",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 348,
+      "title": "파리 대왕",
+      "author": "윌리엄 골딩",
+      "publisher": "민음사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 349,
+      "title": "먼북으로 가는 좁은 길",
+      "author": "리처드 플래너건",
+      "publisher": "문학동네",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 350,
+      "title": "오만과 편견",
+      "author": "제인 오스틴",
+      "publisher": "민음사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 351,
+      "title": "한국단편문학선 1",
+      "author": "김동인 외",
+      "publisher": "민음사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 352,
+      "title": "마담 보바리",
+      "author": "귀스타브 플로베르",
+      "publisher": "민음사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 353,
+      "title": "프랑켄슈타인",
+      "author": "메리 셸리",
+      "publisher": "문학동네",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 354,
+      "title": "셰익스피어 4대 비극",
+      "author": "윌리엄 셰익스피어",
+      "publisher": "육문사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 355,
+      "title": "백년 동안의 고독",
+      "author": "가브리엘 가르시아 마르케스",
+      "publisher": "문학사상",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 356,
+      "title": "죄와 벌 (상)",
+      "author": "표도르 도스토옙스키",
+      "publisher": "열린책들",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 357,
+      "title": "호밀밭의 파수꾼",
+      "author": "J.D. 샐린저",
+      "publisher": "민음사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 358,
+      "title": "주홍글씨",
+      "author": "너새니얼 호손",
+      "publisher": "(알 수 없음)",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 359,
+      "title": "참을 수 없는 존재의 가벼움",
+      "author": "밀란 쿤데라",
+      "publisher": "민음사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 360,
+      "title": "신곡",
+      "author": "단테 알리기에리",
+      "publisher": "(알 수 없음)",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 361,
+      "title": "토지 1~9",
+      "author": "박경리",
+      "publisher": "삼성출판사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 362,
+      "title": "삼국지 1~10",
+      "author": "나관중 (이문열 평역)",
+      "publisher": "민음사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 363,
+      "title": "개미 1~5",
+      "author": "베르나르 베르베르",
+      "publisher": "열린책들",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 364,
+      "title": "신 1~6",
+      "author": "베르나르 베르베르",
+      "publisher": "열린책들",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 365,
+      "title": "삼체 1~3",
+      "author": "류츠신",
+      "publisher": "자음과모음",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 366,
+      "title": "파우스트",
+      "author": "요한 볼프강 폰 괴테",
+      "publisher": "(알 수 없음)",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 367,
+      "title": "셜록 홈스 걸작선",
+      "author": "아서 코난 도일",
+      "publisher": "황금가지 등",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 368,
+      "title": "애거서 크리스티 전집 (10권)",
+      "author": "애거서 크리스티",
+      "publisher": "황금가지",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 369,
+      "title": "고전소설 속 역사여행",
+      "author": "신병주 외",
+      "publisher": "돌베개",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 370,
+      "title": "내 마음의 옥탑방",
+      "author": "박상우",
+      "publisher": "문학사상사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 371,
+      "title": "시인의 별",
+      "author": "이인화",
+      "publisher": "문학사상사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 372,
+      "title": "뱀장어 스튜",
+      "author": "권지예",
+      "publisher": "문학사상사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 373,
+      "title": "화장",
+      "author": "김훈",
+      "publisher": "문학사상사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 374,
+      "title": "아내의 상자",
+      "author": "은희경",
+      "publisher": "문학사상사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 375,
+      "title": "숨은 꽃",
+      "author": "양귀자",
+      "publisher": "문학사상사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 376,
+      "title": "빅 픽처",
+      "author": "더글라스 케네디",
+      "publisher": "밝은세상",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 377,
+      "title": "모모",
+      "author": "미하엘 엔데",
+      "publisher": "비룡소",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 378,
+      "title": "N.P",
+      "author": "요시모토 바나나",
+      "publisher": "북스토리",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 379,
+      "title": "칼의 노래 1, 2",
+      "author": "김훈",
+      "publisher": "생각의나무",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 380,
+      "title": "아몬드",
+      "author": "손원평",
+      "publisher": "창비",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 381,
+      "title": "위저드 베이커리",
+      "author": "구병모",
+      "publisher": "창비",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 382,
+      "title": "달러구트 꿈 백화점 2",
+      "author": "이미예",
+      "publisher": "팩토리나인",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 383,
+      "title": "세계를 건너 너에게 갈게",
+      "author": "이꽃님",
+      "publisher": "문학동네",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 384,
+      "title": "율의 시선",
+      "author": "김민서",
+      "publisher": "창비",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 385,
+      "title": "불편한 편의점 2",
+      "author": "김호연",
+      "publisher": "나무옆의자",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 386,
+      "title": "고요한 우연",
+      "author": "김수빈",
+      "publisher": "문학동네",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 387,
+      "title": "푸른 사자 와니니 2",
+      "author": "이현",
+      "publisher": "창비",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 388,
+      "title": "잘못은 우리 별에 있어",
+      "author": "존 그린",
+      "publisher": "북폴리오",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 389,
+      "title": "눈부신 안부",
+      "author": "백수린",
+      "publisher": "문학동네",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 390,
+      "title": "마루는 강쥐 1",
+      "author": "모죠",
+      "publisher": "문학동네",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 391,
+      "title": "걸리버 여행기",
+      "author": "조너선 스위프트",
+      "publisher": "청목",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 392,
+      "title": "마지막 수업 / 별",
+      "author": "알퐁스 도데",
+      "publisher": "청목",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 393,
+      "title": "엉클 텅스텐",
+      "author": "올리버 색스",
+      "publisher": "바다출판사",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 394,
+      "title": "파인만 씨, 농담도 잘하시네! 1, 2",
+      "author": "리처드 파인만",
+      "publisher": "사이언스북스",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 395,
+      "title": "야생초 편지",
+      "author": "황대권",
+      "publisher": "(알 수 없음)",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 396,
+      "title": "비글호 항해기",
+      "author": "찰스 다윈",
+      "publisher": "올재",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 397,
+      "title": "최고의 교수",
+      "author": "EBS 제작팀",
+      "publisher": "(알 수 없음)",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 398,
+      "title": "조선의 협객 백동수",
+      "author": "김영호",
+      "publisher": "푸른역사",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 399,
+      "title": "체 게바라 평전",
+      "author": "장 코르미에",
+      "publisher": "실천문학사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 400,
+      "title": "죽음의 수용소에서",
+      "author": "빅터 프랭클",
+      "publisher": "청아출판사",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 401,
+      "title": "인문학자들이 뽑은 세계사 인물 오디세이",
+      "author": "이혜령 외",
+      "publisher": "서해문집",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 402,
+      "title": "괴테와의 대화",
+      "author": "요한 페터 에커만",
+      "publisher": "동서문화사",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 403,
+      "title": "괴테의 이탈리아 기행",
+      "author": "요한 볼프강 폰 괴테",
+      "publisher": "(알 수 없음)",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 404,
+      "title": "도시로 떠난 독일 역사 문화 산책",
+      "author": "손선홍",
+      "publisher": "(알 수 없음)",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 405,
+      "title": "30개 도시로 읽는 독일사",
+      "author": "손선홍",
+      "publisher": "(알 수 없음)",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 406,
+      "title": "의사 안중근 (도마)",
+      "author": "장복동",
+      "publisher": "전남대학교 출판부",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 407,
+      "title": "만해 한용운 평전",
+      "author": "김삼웅",
+      "publisher": "시대의창",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 408,
+      "title": "약산 김원봉 평전",
+      "author": "김삼웅",
+      "publisher": "시대의창",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 409,
+      "title": "이휘소 평전",
+      "author": "강주상",
+      "publisher": "사이언스북스",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래"
+    },
+    {
+      "id": 410,
+      "title": "무량수전 배흘림기둥에 기대서서",
+      "author": "최순우",
+      "publisher": "학고재",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 411,
+      "title": "일기일회",
+      "author": "법정",
+      "publisher": "문학의숲",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 412,
+      "title": "앙코르와트·월남가다 上, 下",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 413,
+      "title": "여자란 무엇인가",
+      "author": "김용옥",
+      "publisher": "통나무",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 414,
+      "title": "보물탐정",
+      "author": "장수찬",
+      "publisher": "김영사",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 415,
+      "title": "라틴어 수업",
+      "author": "한동일",
+      "publisher": "흐름출판",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 416,
+      "title": "불면의 등불이 너를 인도한다",
+      "author": "장석주",
+      "publisher": "현암사",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 417,
+      "title": "마음사전",
+      "author": "김소연",
+      "publisher": "마음산책",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 418,
+      "title": "한 글자 사전",
+      "author": "김소연",
+      "publisher": "마음산책",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 419,
+      "title": "언어의 온도",
+      "author": "이기주",
+      "publisher": "말글터",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 420,
+      "title": "사소한 추억의 힘",
+      "author": "승효상",
+      "publisher": "돌베개",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 421,
+      "title": "건축, 사유의 기호",
+      "author": "승효상",
+      "publisher": "돌베개",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 422,
+      "title": "대한민국 여행사전",
+      "author": "고규홍 외",
+      "publisher": "터치아트",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 423,
+      "title": "집을 짓다",
+      "author": "구마 겐고",
+      "publisher": "안그라픽스",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 424,
+      "title": "당신의 집을 편집해드립니다",
+      "author": "빔스 (BEAMS)",
+      "publisher": "위즈덤하우스",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 425,
+      "title": "추사에 미치다",
+      "author": "이성묵",
+      "publisher": "푸른역사",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 426,
+      "title": "화인열전 1, 2",
+      "author": "유홍준",
+      "publisher": "역사비평사",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 427,
+      "title": "석도화론",
+      "author": "김경수",
+      "publisher": "(알 수 없음)",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 428,
+      "title": "내가 엮은 옛 편지",
+      "author": "(알 수 없음)",
+      "publisher": "(알 수 없음)",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 429,
+      "title": "나는 옛것이 좋아 때론 깨진 빗돌을 찾으러 다녔다",
+      "author": "박철상",
+      "publisher": "너머북스",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 430,
+      "title": "붓과 색으로 조선을 깨우다",
+      "author": "김홍도 외",
+      "publisher": "지식채널",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 431,
+      "title": "생각의 시대",
+      "author": "김용규",
+      "publisher": "김영사",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 432,
+      "title": "오래 보아야 예쁘다 너도 그렇다",
+      "author": "나태주 엮음",
+      "publisher": "RHK",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 433,
+      "title": "쓰는 인간",
+      "author": "(알 수 없음)",
+      "publisher": "상상스퀘어",
+      "phase": 2,
+      "phase_name": "우주를 기술하는 언어 (물리, 화학, 수학)",
+      "subtitle": "컵으로 우주를 뜨다"
+    },
+    {
+      "id": 434,
+      "title": "경험의 종말",
+      "author": "(알 수 없음)",
+      "publisher": "(알 수 없음)",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 435,
+      "title": "위대한 관찰",
+      "author": "(알 수 없음)",
+      "publisher": "(알 수 없음)",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 436,
+      "title": "야생의 땅, 존 뮤어",
+      "author": "존 뮤어",
+      "publisher": "eum",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 437,
+      "title": "산책자를 위한 자연수업",
+      "author": "트리스탄 굴리",
+      "publisher": "(알 수 없음)",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관"
+    },
+    {
+      "id": 438,
+      "title": "생각의 시대 (영문본)",
+      "author": "(알 수 없음)",
+      "publisher": "(알 수 없음)",
+      "phase": 5,
+      "phase_name": "뇌과학",
+      "subtitle": "프로메테우스의 저주"
+    },
+    {
+      "id": 439,
+      "title": "무한화서",
+      "author": "이성복",
+      "publisher": "문학과지성사",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 440,
+      "title": "신사임당",
+      "author": "이숙인",
+      "publisher": "(알 수 없음)",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 441,
+      "title": "향가",
+      "author": "박노준",
+      "publisher": "(알 수 없음)",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 442,
+      "title": "잡초는 없다",
+      "author": "윤구병",
+      "publisher": "보리",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 443,
+      "title": "담론",
+      "author": "신영복",
+      "publisher": "돌베개",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 444,
+      "title": "감옥으로부터의 사색",
+      "author": "신영복",
+      "publisher": "돌베개",
+      "phase": 6,
+      "phase_name": "철학",
+      "subtitle": "세계 인식의 틀"
+    },
+    {
+      "id": 445,
+      "title": "뭇 생명의 아름다움",
+      "author": "정약용",
+      "publisher": "(알 수 없음)",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 446,
+      "title": "당신이 옳다",
+      "author": "정혜신",
+      "publisher": "해냄",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 447,
+      "title": "정통동양화기법",
+      "author": "(알 수 없음)",
+      "publisher": "한국학자료원",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 448,
+      "title": "서법인물자전 46 회소초서",
+      "author": "(알 수 없음)",
+      "publisher": "월간서예문인화",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 449,
+      "title": "파워 오브 아트",
+      "author": "사이먼 샤마",
+      "publisher": "아트북스",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 450,
+      "title": "서양화 자신 있게 보기",
+      "author": "이주헌",
+      "publisher": "학고재",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 451,
+      "title": "민중 엣센스 국어사전",
+      "author": "이희승 감수",
+      "publisher": "민중서림",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 452,
+      "title": "보이지 않는 차이",
+      "author": "연준혁 외",
+      "publisher": "위즈덤하우스",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 453,
+      "title": "POSITIVELY POOH",
+      "author": "Milne 외",
+      "publisher": "DUTTON",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 454,
+      "title": "퇴계에게 공부법을 배우다",
+      "author": "설흔",
+      "publisher": "위즈덤하우스",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 455,
+      "title": "나태주의 풀꽃 인생수업",
+      "author": "나태주",
+      "publisher": "니들북",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 456,
+      "title": "물은 답을 알고 있다",
+      "author": "에모토 마사루",
+      "publisher": "나무심는사람",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 457,
+      "title": "원고지 10장을 쓰는 힘",
+      "author": "사이토 다카시",
+      "publisher": "루비박스",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 458,
+      "title": "님의 침묵",
+      "author": "한용운",
+      "publisher": "청목",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 459,
+      "title": "메밀꽃 필 무렵",
+      "author": "이효석",
+      "publisher": "청목",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 460,
+      "title": "하늘과 바람과 별과 시",
+      "author": "윤동주",
+      "publisher": "청목",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로"
+    },
+    {
+      "id": 461,
+      "title": "나는 메트로폴리탄 미술관의 경비원입니다",
+      "author": "패트릭 브링리",
+      "publisher": "웅진지식하우스",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 462,
+      "title": "모리와 함께한 화요일",
+      "author": "미치 앨봄",
+      "publisher": "세종서적",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 463,
+      "title": "사랑하지 말자 (시집)",
+      "author": "도올 김용옥",
+      "publisher": "통나무",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 464,
+      "title": "단둘이 북클럽",
+      "author": "크리스텔 프티콜랭",
+      "publisher": "부키",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 465,
+      "title": "살짝 욕심이 생겼어",
+      "author": "요시타케 신스케",
+      "publisher": "김영사",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 466,
+      "title": "정치를 바꾼 결정적 질문",
+      "author": "박민영",
+      "publisher": "다른",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality"
+    },
+    {
+      "id": 467,
+      "title": "中國歷代詩歌選集 1",
+      "author": "기세춘·신영복 편역",
+      "publisher": "돌베개",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로",
+      "aphorism": ""
+    },
+    {
+      "id": 468,
+      "title": "中國歷代詩歌選集 2",
+      "author": "기세춘·신영복 편역",
+      "publisher": "돌베개",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로",
+      "aphorism": ""
+    },
+    {
+      "id": 469,
+      "title": "中國歷代詩歌選集 3",
+      "author": "기세춘·신영복 편역",
+      "publisher": "돌베개",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로",
+      "aphorism": ""
+    },
+    {
+      "id": 470,
+      "title": "中國歷代詩歌選集 4",
+      "author": "기세춘·신영복 편역",
+      "publisher": "돌베개",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로",
+      "aphorism": ""
+    },
+    {
+      "id": 471,
+      "title": "죽음 1",
+      "author": "베르나르 베르베르",
+      "publisher": "열린책들",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로",
+      "aphorism": ""
+    },
+    {
+      "id": 472,
+      "title": "죽음 2",
+      "author": "베르나르 베르베르",
+      "publisher": "열린책들",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로",
+      "aphorism": ""
+    },
+    {
+      "id": 473,
+      "title": "역사속에서 걸어나온 사람들",
+      "author": "나카지마 아쓰시",
+      "publisher": "다섯수레",
+      "phase": 6,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로",
+      "aphorism": ""
+    },
+    {
+      "id": 474,
+      "title": "그림소담 — 간송미술관의 아름다운 그림",
+      "author": "탁현규",
+      "publisher": "dh",
+      "phase": 7,
+      "phase_name": "여백",
+      "subtitle": "Potentiality",
+      "aphorism": ""
+    },
+    {
+      "id": 475,
+      "title": "너의 췌장을 먹고 싶어",
+      "author": "스미노 요루",
+      "publisher": "소미미디어",
+      "phase": 7,
+      "phase_name": "시·소설",
+      "subtitle": "구체에서 추상으로",
+      "aphorism": ""
+    },
+    {
+      "id": 476,
+      "title": "전통 부채 13",
+      "author": "",
+      "publisher": "",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality",
+      "aphorism": ""
+    },
+    {
+      "id": 477,
+      "title": "도해 타이완사",
+      "author": "왕핀한",
+      "publisher": "글항아리",
+      "phase": 4,
+      "phase_name": "인류의 역사",
+      "subtitle": "오래된 미래",
+      "aphorism": ""
+    },
+    {
+      "id": 478,
+      "title": "미생물 전쟁",
+      "author": "브라이오니 바",
+      "publisher": "반니",
+      "phase": 3,
+      "phase_name": "생명의 진화",
+      "subtitle": "관계론적 세계관",
+      "aphorism": ""
+    },
+    {
+      "id": 479,
+      "title": "서재결혼시키기",
+      "author": "앤 패디먼",
+      "publisher": "Ex Libris",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality",
+      "aphorism": ""
+    },
+    {
+      "id": 480,
+      "title": "꼬리에 꼬리를 무는 漢字",
+      "author": "한호림",
+      "publisher": "중앙에듀",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality",
+      "aphorism": ""
+    },
+    {
+      "id": 481,
+      "title": "한국의 글쟁이들",
+      "author": "구본준",
+      "publisher": "한겨레출판",
+      "phase": 8,
+      "phase_name": "여백",
+      "subtitle": "Potentiality",
+      "aphorism": ""
+    }
+  ]
+}

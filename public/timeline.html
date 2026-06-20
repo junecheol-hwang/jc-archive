@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timeline — 도반의 여정</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500&family=Noto+Sans+KR:wght@300;400&family=IM+Fell+English:ital@1&display=swap" rel="stylesheet">
+<script type="importmap">
+  { "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
+      "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2"
+  }}
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gray-light:#C8C5BE; --gray-mid:#A09D96; --gray-dark:#6E6C66;
+  --orange-pale:#F2E0C8; --orange-faded:#D9A96E; --orange-worn:#B87D3E;
+  --orange-deep:#8C5A20; --orange-dark:#5E3A10;
+}
+html,body{width:100%;height:100%;overflow:hidden;background:#02050a;user-select:none;}
+#three-container{position:fixed;inset:0;z-index:1;}
+#ui-layer{position:fixed;inset:0;z-index:10;pointer-events:none;animation:uiFadeIn 2.5s ease forwards;}
+@keyframes uiFadeIn{from{opacity:0}to{opacity:1}}
+
+/* 타임라인 헤더 */
+#header{
+  position:fixed;top:0;left:0;right:0;z-index:20;
+  padding:2rem calc(3rem + 320px) 1.5rem 3rem;
+  display:flex;align-items:flex-end;justify-content:space-between;
+  background:linear-gradient(to bottom,rgba(2,5,10,0.92) 50%,transparent);
+  pointer-events:none;
+}
+#header-left{display:flex;flex-direction:column;gap:3px;}
+#header-subtitle{
+  font-family:'Noto Sans KR',sans-serif;font-weight:300;
+  font-size:0.7rem;color:rgba(63,61,57,0.9);letter-spacing:0.2em;
+}
+#header-title{
+  font-family:'Noto Serif KR',serif;font-weight:300;
+  font-size:1.15rem;color:var(--orange-faded);letter-spacing:0.14em;line-height:1.5;
+}
+#header-phase{
+  font-family:'Noto Sans KR',sans-serif;font-weight:300;
+  font-size:0.85rem;color:var(--gray-dark);letter-spacing:0.15em;text-align:right;
+}
+#header-phase .phase-name{
+  display:block;font-size:1.15rem;color:var(--gray-light);
+  margin-top:3px;font-family:'Noto Serif KR',serif;font-weight:300;
+}
+
+/* 성단 헤더 */
+/* 책 패널 — 우측, 검색창 아래 */
+#book-panel{
+  position:fixed;top:5rem;right:3rem;z-index:44;
+  width:clamp(240px,26vw,340px);
+  font-family:'Noto Sans KR',sans-serif;
+  pointer-events:none;opacity:0;transition:opacity 0.3s ease;
+}
+#book-panel.visible{opacity:1;pointer-events:auto;}
+#bp-info{
+  background:rgba(2,5,10,0.72);
+  border:0.5px solid rgba(110,108,102,0.4);border-radius:2px;
+  padding:0.9rem 1rem;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+}
+#bp-title{
+  font-family:'Noto Serif KR',serif;font-weight:400;
+  font-size:1.02rem;color:var(--orange-pale);letter-spacing:0.04em;
+}
+#bp-author{font-size:0.7rem;color:var(--gray-dark);letter-spacing:0.06em;margin-top:0.35rem;}
+#bp-subtitle{
+  font-family:'Noto Serif KR',serif;font-style:italic;font-weight:300;
+  font-size:0.76rem;color:var(--gray-mid);line-height:1.7;margin-top:0.5rem;
+}
+#bp-body{
+  display:none;margin-top:8px;
+  background:rgba(2,5,10,0.88);
+  border:0.5px solid rgba(110,108,102,0.3);border-radius:2px;
+  padding:0.9rem 1rem 1rem;
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+  max-height:64vh;overflow-y:auto;
+}
+#book-panel.open #bp-body{display:block;}
+#bp-body::-webkit-scrollbar{width:5px;}
+#bp-body::-webkit-scrollbar-thumb{background:rgba(110,108,102,0.3);border-radius:3px;}
+.bp-section{margin-bottom:1.1rem;}
+.bp-section:last-child{margin-bottom:0;}
+.bp-label{font-size:0.66rem;color:var(--orange-worn);letter-spacing:0.12em;margin-bottom:0.5rem;}
+.bp-add{display:flex;gap:6px;}
+.bp-input{
+  flex:1;background:rgba(255,255,255,0.03);
+  border:0.5px solid rgba(110,108,102,0.35);border-radius:2px;
+  padding:0.4rem 0.55rem;color:var(--gray-light);
+  font-size:0.74rem;font-weight:300;outline:none;
+}
+.bp-input:focus{border-color:rgba(217,169,110,0.6);}
+.bp-input::placeholder{color:rgba(110,108,102,0.7);}
+.bp-btn{
+  flex:none;width:28px;background:rgba(217,169,110,0.12);
+  border:0.5px solid rgba(217,169,110,0.4);border-radius:2px;
+  color:var(--orange-pale);font-size:0.9rem;cursor:pointer;transition:background 0.15s;
+}
+.bp-btn:hover{background:rgba(217,169,110,0.22);}
+.bp-list{margin-top:0.5rem;}
+.bp-item{
+  display:flex;align-items:flex-start;gap:6px;
+  font-size:0.74rem;color:var(--gray-mid);line-height:1.5;
+  padding:0.28rem 0;border-bottom:0.5px solid rgba(110,108,102,0.12);
+}
+.bp-item:last-child{border-bottom:none;}
+.bp-item a{color:var(--gray-light);text-decoration:none;border-bottom:0.5px dotted rgba(110,108,102,0.5);}
+.bp-item a:hover{color:var(--orange-pale);}
+.bp-item-text{flex:1;word-break:break-word;}
+.bp-del{flex:none;cursor:pointer;color:rgba(110,108,102,0.6);font-size:0.85rem;line-height:1;padding:0 2px;}
+.bp-del:hover{color:var(--orange-worn);}
+
+/* 문장 다이얼 — 가운데 또렷, 위아래 페이드+축소 */
+#bp-dial{
+  position:relative;height:168px;margin-top:0.6rem;
+  overflow-y:auto;overflow-x:hidden;
+  -ms-overflow-style:none;scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 24%,#000 76%,transparent);
+          mask-image:linear-gradient(to bottom,transparent,#000 24%,#000 76%,transparent);
+}
+#bp-dial::-webkit-scrollbar{display:none;}
+#bp-dial-track{padding:64px 0;}
+.bp-line{
+  font-family:'Noto Serif KR',serif;font-weight:300;
+  font-size:0.84rem;line-height:1.6;color:var(--gray-light);
+  text-align:center;padding:0.45rem 0.5rem;position:relative;
+  transition:opacity 0.1s,transform 0.1s,filter 0.1s;transform-origin:center;
+}
+.bp-line .bp-line-del{
+  position:absolute;right:-2px;top:50%;transform:translateY(-50%);
+  opacity:0;cursor:pointer;color:rgba(110,108,102,0.7);font-size:0.8rem;transition:opacity 0.15s;
+}
+.bp-line:hover .bp-line-del{opacity:1;}
+#bp-line-count{text-align:center;font-size:0.6rem;color:var(--gray-dark);letter-spacing:0.1em;margin-top:0.5rem;}
+
+/* 로그인(magic link) — 좌측 하단 */
+#auth-box{
+  position:fixed;left:3rem;bottom:1.6rem;z-index:45;
+  font-family:'Noto Sans KR',sans-serif;pointer-events:auto;
+}
+#auth-box.flash{animation:authflash 1.6s;}
+@keyframes authflash{0%,100%{opacity:1}30%{opacity:0.3}}
+#auth-status{display:none;font-size:0.66rem;color:var(--orange-worn);letter-spacing:0.06em;}
+#auth-login{display:flex;gap:6px;align-items:center;}
+#auth-email{
+  background:rgba(2,5,10,0.7);border:0.5px solid rgba(110,108,102,0.4);border-radius:2px;
+  padding:0.4rem 0.6rem;width:150px;color:var(--gray-light);
+  font-size:0.72rem;font-weight:300;outline:none;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+}
+#auth-email:focus{border-color:rgba(217,169,110,0.6);}
+#auth-email::placeholder{color:rgba(110,108,102,0.75);}
+#auth-send{
+  width:28px;height:28px;flex:none;
+  background:rgba(217,169,110,0.12);border:0.5px solid rgba(217,169,110,0.4);border-radius:2px;
+  color:var(--orange-pale);cursor:pointer;font-size:0.85rem;
+}
+#auth-send:hover{background:rgba(217,169,110,0.22);}
+#auth-msg{font-size:0.6rem;color:var(--gray-dark);margin-top:5px;letter-spacing:0.04em;min-height:0.8rem;max-width:200px;}
+
+#tl-canvas{position:fixed;inset:0;z-index:15;pointer-events:all;}
+
+/* 성간이동 네비 */
+#nav{
+  position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);
+  z-index:30;display:flex;gap:10px;align-items:center;pointer-events:all;
+}
+.nav-dot{
+  width:9px;height:9px;border-radius:50%;
+  background:rgba(110,108,102,0.35);cursor:pointer;
+  transition:all 0.35s ease;border:0.5px solid rgba(110,108,102,0.5);
+}
+.nav-dot.active{
+  background:var(--orange-worn);border-color:var(--orange-faded);
+  box-shadow:0 0 10px rgba(184,125,62,0.6);width:11px;height:11px;
+}
+.nav-dot:hover{background:var(--orange-faded);transform:scale(1.3);}
+
+/* BGM 컨트롤 */
+#bgm-ctrl{
+  position:fixed;bottom:2rem;left:2.5rem;
+  z-index:30;display:flex;align-items:center;gap:10px;
+  pointer-events:all;
+}
+#bgm-btn{
+  width:28px;height:28px;border-radius:50%;
+  background:transparent;border:0.5px solid rgba(110,108,102,0.4);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all 0.25s;
+}
+#bgm-btn:hover{ border-color:var(--orange-faded); }
+#bgm-btn svg{ width:12px;height:12px; }
+#bgm-vol{
+  -webkit-appearance:none;appearance:none;
+  width:60px;height:2px;
+  background:rgba(110,108,102,0.3);border-radius:2px;outline:none;cursor:pointer;
+}
+#bgm-vol::-webkit-slider-thumb{
+  -webkit-appearance:none;width:10px;height:10px;border-radius:50%;
+  background:var(--orange-worn);cursor:pointer;
+}
+
+/* back to the timeline */
+#back-btn{
+  position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);
+  z-index:30;pointer-events:all;
+  font-family:'IM Fell English',serif;font-style:italic;
+  font-size:0.88rem;color:var(--gray-dark);letter-spacing:0.18em;
+  cursor:pointer;opacity:0;white-space:nowrap;transition:color 0.25s;
+}
+#back-btn:hover{color:var(--orange-faded);}
+
+/* 스크롤 힌트 */
+#scroll-hint{
+  position:fixed;bottom:4.5rem;left:50%;transform:translateX(-50%);
+  font-family:'Noto Sans KR',sans-serif;font-weight:300;
+  font-size:0.7rem;color:var(--gray-dark);letter-spacing:0.25em;
+  z-index:20;pointer-events:none;
+  animation:fadeHint 4s ease 2.5s forwards;
+}
+@keyframes fadeHint{0%{opacity:0.7}100%{opacity:0}}
+
+/* 호버 패널 — 성단 뷰에서는 숨김 */
+#hover-panel{
+  display:none;
+}
+
+/* 책 검색창 — 우측 상단, 타임라인·성단 공통 */
+#book-search{
+  position:fixed;top:1.5rem;right:3rem;z-index:45;
+  width:clamp(220px,24vw,300px);pointer-events:all;
+  font-family:'Noto Sans KR',sans-serif;
+}
+#book-search-box{
+  display:flex;align-items:center;gap:9px;
+  background:rgba(2,5,10,0.7);
+  border:0.5px solid rgba(110,108,102,0.45);
+  border-radius:2px;padding:0.55rem 0.85rem;
+  backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+  transition:border-color 0.25s;
+}
+#book-search-box:focus-within{border-color:rgba(217,169,110,0.7);}
+#book-search-icon{width:13px;height:13px;flex:none;opacity:0.55;}
+#book-search-input{
+  flex:1;background:transparent;border:none;outline:none;
+  color:var(--gray-light);font-size:0.8rem;font-weight:300;letter-spacing:0.04em;
+}
+#book-search-input::placeholder{color:rgba(110,108,102,0.85);}
+#book-search-results{
+  margin-top:6px;background:rgba(2,5,10,0.93);
+  border:0.5px solid rgba(110,108,102,0.3);border-radius:2px;
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+  max-height:62vh;overflow-y:auto;display:none;
+}
+#book-search-results.open{display:block;}
+#book-search-results::-webkit-scrollbar{width:5px;}
+#book-search-results::-webkit-scrollbar-thumb{background:rgba(110,108,102,0.35);border-radius:3px;}
+.bs-hint{
+  padding:0.55rem 0.9rem;font-size:0.62rem;color:var(--gray-dark);
+  letter-spacing:0.14em;border-bottom:0.5px solid rgba(110,108,102,0.18);
+}
+.bs-item{
+  padding:0.55rem 0.9rem;cursor:pointer;
+  border-bottom:0.5px solid rgba(110,108,102,0.1);
+  transition:background 0.15s;
+}
+.bs-item:last-child{border-bottom:none;}
+.bs-item:hover,.bs-item.active{background:rgba(217,169,110,0.1);}
+.bs-item-title{
+  font-family:'Noto Serif KR',serif;font-weight:400;
+  font-size:0.82rem;color:var(--orange-pale);letter-spacing:0.02em;
+}
+.bs-item-meta{
+  font-size:0.66rem;color:var(--gray-dark);margin-top:2px;letter-spacing:0.05em;
+}
+.bs-empty{padding:0.75rem 0.9rem;font-size:0.72rem;color:var(--gray-dark);}
+</style>
+</head>
+<body>
+
+<div id="three-container"></div>
+
+<!-- BGM -->
+<audio id="bgm" loop preload="auto">
+  <source src="bgm.sentient_beings.mp3" type="audio/mpeg">
+</audio>
+
+<div id="ui-layer">
+  <div id="header">
+    <div id="header-left">
+      <div id="header-subtitle">가장 먼 여행</div>
+      <div id="header-title">머리에서 가슴으로</div>
+    </div>
+    <div id="header-phase">
+      <span id="current-phase-num">Phase 1</span>
+      <span class="phase-name" id="current-phase-name">우주론</span>
+    </div>
+  </div>
+
+  <canvas id="tl-canvas"></canvas>
+  <div id="scroll-hint">← scroll →</div>
+  <div id="nav"></div>
+  <div id="back-btn" onclick="exitCluster()">back to the timeline</div>
+
+  <!-- BGM 컨트롤 -->
+  <div id="bgm-ctrl">
+    <button id="bgm-btn" onclick="toggleBgm()" title="음악 재생/정지">
+      <svg id="bgm-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(110,108,102,0.8)" stroke-width="2">
+        <polygon points="5,3 19,12 5,21" fill="rgba(110,108,102,0.8)" stroke="none"/>
+      </svg>
+    </button>
+    <input type="range" id="bgm-vol" min="0" max="1" step="0.05" value="0.35"
+           oninput="setBgmVol(this.value)" title="볼륨">
+  </div>
+</div>
+
+<!-- 호버 아포리즘 패널 -->
+<div id="hover-panel">
+  <div id="hover-book-title"></div>
+  <div id="hover-book-author"></div>
+  <div id="hover-divider"></div>
+  <div id="hover-aphorism"></div>
+</div>
+
+<!-- 책 검색창 — 우측 상단 -->
+<div id="book-search">
+  <div id="book-search-box">
+    <svg id="book-search-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(200,197,190,0.85)" stroke-width="1.6">
+      <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/>
+    </svg>
+    <input id="book-search-input" type="text" autocomplete="off" spellcheck="false"
+           placeholder="책 이름으로 검색 · 초성도 가능">
+  </div>
+  <div id="book-search-results"></div>
+</div>
+
+<!-- 책 패널 — 검색창 아래: 책 정보 + 입력/저장 -->
+<div id="book-panel">
+  <div id="bp-info">
+    <div id="bp-title"></div>
+    <div id="bp-author"></div>
+    <div id="bp-subtitle"></div>
+  </div>
+  <div id="bp-body">
+    <div class="bp-section">
+      <div class="bp-label">♪ 같이 들을 음악</div>
+      <div class="bp-add">
+        <input class="bp-input" id="bp-music-input" placeholder="곡 · 앨범 · 링크" autocomplete="off" spellcheck="false">
+        <button class="bp-btn" data-add="music">+</button>
+      </div>
+      <div class="bp-list" id="bp-music-list"></div>
+    </div>
+    <div class="bp-section">
+      <div class="bp-label">✶ 더 읽을거리</div>
+      <div class="bp-add">
+        <input class="bp-input" id="bp-reading-input" placeholder="제목 · 링크" autocomplete="off" spellcheck="false">
+        <button class="bp-btn" data-add="reading">+</button>
+      </div>
+      <div class="bp-list" id="bp-reading-list"></div>
+    </div>
+    <div class="bp-section bp-lines-section">
+      <div class="bp-label">&ldquo; 마음에 드는 문장</div>
+      <div class="bp-add">
+        <input class="bp-input" id="bp-line-input" placeholder="문장을 적고 Enter" autocomplete="off" spellcheck="false">
+        <button class="bp-btn" data-add="line">+</button>
+      </div>
+      <div id="bp-dial"><div id="bp-dial-track"></div></div>
+      <div id="bp-line-count"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 로그인 (magic link) — 좌측 하단 -->
+<div id="auth-box">
+  <div id="auth-status"></div>
+  <div id="auth-login">
+    <input id="auth-email" type="email" autocomplete="email" spellcheck="false" placeholder="이메일로 로그인">
+    <button id="auth-send" title="로그인 링크 받기">→</button>
+  </div>
+  <div id="auth-msg"></div>
+</div>
+
+<!-- SUPABASE 초기화 -->
+<script type="module">
+import { createClient } from '@supabase/supabase-js';
+// ⚠️ 배포 전 확인: 아래 URL이 Supabase 대시보드의 Project URL과 정확히 같은지 (Copy 버튼으로 대조)
+const SUPABASE_URL = 'https://ebxaaxvpilouizujjwgt.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_g3UpSee8YCFDJWaVWmLpQg_HFvOG2-B';
+try {
+  window.sb = createClient(SUPABASE_URL, SUPABASE_KEY, {
+    auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
+  });
+} catch(e) {
+  console.error('Supabase init 실패:', e);
+  window.sb = null;
+}
+window.dispatchEvent(new Event('sb-ready'));
+</script>
+
+<!-- THREE.JS 파티클 배경 — 청백 통일 -->
+<script type="module">
+import * as THREE from 'three';
+const container=document.getElementById('three-container');
+const clock=new THREE.Clock();
+const N=7000;
+const basePos=new Float32Array(N*3);
+const sizes  =new Float32Array(N);
+const colors =new Float32Array(N*3);
+let scene,camera,renderer,pts;
+window._bg={targetZ:100,currentZ:100,targetX:0,currentX:0,targetY:27,currentY:27};
+
+function init(){
+  scene=new THREE.Scene();
+  scene.background=new THREE.Color(0x02050a);
+  scene.fog=new THREE.FogExp2(0x02050a,0.008);
+  camera=new THREE.PerspectiveCamera(55,innerWidth/innerHeight,0.1,1000);
+  camera.position.set(0,27,100);
+  renderer=new THREE.WebGLRenderer({antialias:true});
+  renderer.setSize(innerWidth,innerHeight);
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.toneMapping=THREE.ACESFilmicToneMapping;
+  container.appendChild(renderer.domElement);
+
+  const geo=new THREE.BufferGeometry();
+  for(let i=0;i<N;i++){
+    const i3=i*3;
+    const x=(Math.random()-0.5)*300;
+    const y=(Math.random()-0.5)*40;
+    const z=(Math.random()-0.5)*280;
+    basePos[i3]=x; basePos[i3+1]=y; basePos[i3+2]=z;
+    const df=1-Math.abs(z)/280*0.6;
+    // 배경 별: 청백 통일 — 거리에 따른 밝기 변화만
+    const bright=0.35+df*0.65;
+    const tint=Math.random();
+    // 약간의 청/백 변주만 (분광형 없음)
+    colors[i3]  =(0.72+tint*0.18)*bright;
+    colors[i3+1]=(0.82+tint*0.12)*bright;
+    colors[i3+2]=bright;
+    const base=Math.random()>0.92 ? Math.random()*2.5+1.2 : Math.random()*0.7+0.2;
+    sizes[i]=base*df;
+  }
+  geo.setAttribute('position',   new THREE.BufferAttribute(basePos.slice(),3));
+  geo.setAttribute('size',       new THREE.BufferAttribute(sizes,1));
+  geo.setAttribute('customColor',new THREE.BufferAttribute(colors,3));
+
+  const cv=document.createElement('canvas'); cv.width=64; cv.height=64;
+  const c2=cv.getContext('2d');
+  const g=c2.createRadialGradient(32,32,0,32,32,32);
+  g.addColorStop(0,'rgba(255,255,255,1)');
+  g.addColorStop(0.25,'rgba(210,228,255,0.7)');
+  g.addColorStop(0.6,'rgba(170,200,255,0.15)');
+  g.addColorStop(1,'transparent');
+  c2.fillStyle=g; c2.fillRect(0,0,64,64);
+
+  const mat=new THREE.ShaderMaterial({
+    uniforms:{pointTexture:{value:new THREE.CanvasTexture(cv)}},
+    vertexShader:`
+      attribute float size; attribute vec3 customColor; varying vec3 vColor;
+      void main(){vColor=customColor;
+        vec4 mvPos=modelViewMatrix*vec4(position,1.0);
+        gl_PointSize=size*(380.0/-mvPos.z);
+        gl_Position=projectionMatrix*mvPos;}`,
+    fragmentShader:`
+      uniform sampler2D pointTexture; varying vec3 vColor;
+      void main(){gl_FragColor=vec4(vColor,0.85)*texture2D(pointTexture,gl_PointCoord);}`,
+    blending:THREE.AdditiveBlending,depthTest:false,transparent:true
+  });
+  pts=new THREE.Points(geo,mat);
+  scene.add(pts);
+  window.addEventListener('resize',()=>{
+    camera.aspect=innerWidth/innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(innerWidth,innerHeight);
+  });
+  animate();
+}
+
+function animate(){
+  requestAnimationFrame(animate);
+  const t=clock.getElapsedTime();
+  const bg=window._bg;
+  bg.currentZ+=(bg.targetZ-bg.currentZ)*0.028;
+  bg.currentX+=(bg.targetX-bg.currentX)*0.028;
+  bg.currentY+=(bg.targetY-bg.currentY)*0.028;
+  camera.position.z=bg.currentZ;
+  camera.position.x=bg.currentX+Math.sin(t*0.035)*5;
+  camera.position.y=bg.currentY+Math.sin(t*0.022)*2.5;
+  camera.lookAt(bg.currentX*0.2,0,0);
+  const pos=pts.geometry.attributes.position.array;
+  for(let i=0;i<N;i++){
+    const i3=i*3;
+    pos[i3]  =basePos[i3]  +Math.sin(t*0.28+i*0.71)*0.55;
+    pos[i3+1]=basePos[i3+1]+Math.sin(t*0.19+i*0.53)*0.95;
+    pos[i3+2]=basePos[i3+2]+Math.cos(t*0.23+i*0.41)*0.45;
+  }
+  pts.geometry.attributes.position.needsUpdate=true;
+  renderer.render(scene,camera);
+}
+init();
+</script>
+
+<!-- TIMELINE UI -->
+<script>
+// ── 책 별 분광형 색상 — 책마다 랜덤 고정 ─────────────
+// ── 책 별 색상 — 배경 청백 파티클과 조화로운 좁은 팔레트 ──
+const BOOK_STAR_TYPES=[
+  {r:0.74,g:0.84,b:1.00},  // 청
+  {r:0.82,g:0.89,b:1.00},  // 옅은 청
+  {r:0.92,g:0.95,b:1.00},  // 청백
+  {r:0.98,g:0.99,b:1.00},  // 흰
+  {r:1.00,g:0.98,b:0.91},  // 따뜻한 흰 (미묘)
+];
+
+// ── 결정론적 시드 난수 (mulberry32) — 책마다 고정된 위치/특성 ──
+function seededRand(seed){
+  let t=seed>>>0;
+  return function(){
+    t+=0x6D2B79F5;
+    let x=Math.imul(t^t>>>15,1|t);
+    x^=x+Math.imul(x^x>>>7,61|x);
+    return ((x^x>>>14)>>>0)/4294967296;
+  };
+}
+
+// ── 데이터 ────────────────────────────────────────────
+const PHASES=[
+  {id:1,name:'우주론',              desc:'태극은 양의를 생하고'},
+  {id:2,name:'우주를 기술하는 언어', desc:'컵속에 담긴 우주'},
+  {id:3,name:'생명의 진화',          desc:'관계론적 세계관'},
+  {id:4,name:'인류의 역사',          desc:'오래된 미래'},
+  {id:5,name:'뇌과학',              desc:'프로메테우스의 저주'},
+  {id:6,name:'철학',                desc:'세계인식의 틀'},
+  {id:7,name:'시·소설',             desc:'구체에서 추상으로'},
+  {id:8,name:'여백',                desc:'Potentiality | 무한한 가능태'},
+];
+
+// ── 데이터 — books.json에서 fetch ────────────────────
+let BOOKS = [];
+let dataReady = false;
+
+function assignStarColors(){
+  BOOKS.forEach(book=>{
+    const t=BOOK_STAR_TYPES[Math.floor((Math.sin(book.id*73.1)*0.5+0.5)*BOOK_STAR_TYPES.length)];
+    book._starColor=t;
+  });
+}
+
+fetch('books.json')
+  .then(r=>r.json())
+  .then(data=>{
+    BOOKS = data.books;
+    assignStarColors();
+    dataReady = true;
+  })
+  .catch(err=>console.error('books.json 로드 실패:', err));
+
+// ── 상태 ──────────────────────────────────────────────
+const tlCanvas=document.getElementById('tl-canvas');
+const ctx=tlCanvas.getContext('2d');
+let W,H;
+
+let viewMode='timeline';
+let activeIdx=null;
+let zoomT=0;
+let clusterBooks=[];
+let currentOffset=0,targetOffset=0,currentPhaseIndex=0;
+const PHASE_SPACING=340;
+let phaseHitAreas=[];
+
+// 호버 상태
+let hoveredBook=null;
+let hoverPanelAlpha=0;
+
+// 마우스 위치 (성단 줌 레벨용)
+let mouseX=W/2||0, mouseY=H/2||0;
+
+// ── DOM 참조 ──────────────────────────────────────────
+const elHeader  =document.getElementById('header');
+const elHoverPanel=document.getElementById('hover-panel');
+const elNav     =document.getElementById('nav');
+const elBack    =document.getElementById('back-btn');
+
+// 강조/선택 상태
+let pinnedBook=null;   // 검색/클릭으로 고정된 별
+let panelBook=null;    // 입력 패널이 열린 책
+let focusedBook=null;  // 강조 대상 = hoveredBook || pinnedBook
+const bookData={};     // 책 id별 {music:[],reading:[],lines:[]}
+let panelDirty=false;  // 패널 내용이 바뀌어 저장이 필요한 상태
+let currentUser=null;  // 로그인한 사용자 (없으면 읽기만)
+
+function resize(){W=tlCanvas.width=innerWidth;H=tlCanvas.height=innerHeight;}
+
+// ── 성단 모션 상태 ────────────────────────────────────
+let clusterEntryTime = 0;
+let floatClock = 0;
+const ENTRY_DURATION = 1.4;
+
+// 별자리 선 상태
+let constellationAlpha = 0;  // 현재 선 투명도 (0→1 페이드인, 1→0 페이드아웃)
+let constellationDir   = 0;  // 1=나타남, -1=사라짐, 0=정지
+let constellationLines = []; // (구) 연결선 목록 — 미사용
+let constellation = {members:[], edges:[]}; // 호버 별자리: 별 5~12개 + 연결
+let pendingEnter = null;     // 검색 선택 후 진입 예약 phaseIdx
+
+// ── 별자리 생성 — 호버한 별 둘레에서 5~12개를 골라 자연스럽게 연결 ──
+function buildConstellation(rootBook){
+  const all=clusterBooks
+    .map(cb=>cb.book)
+    .filter(b=>b!==rootBook && b._csx!=null && b._csy!=null);
+  if(rootBook._csx==null || all.length<4) return {members:[rootBook], edges:[]};
+
+  const rnd=seededRand(rootBook.id*40503+777);
+  const count=5+Math.floor(rnd()*8); // 5~12 (root 포함)
+  const rx=rootBook._csx, ry=rootBook._csy;
+
+  // root에서 가까운 후보 풀
+  const sorted=all.sort((a,b)=>{
+    const da=(a._csx-rx)**2+(a._csy-ry)**2;
+    const db=(b._csx-rx)**2+(b._csy-ry)**2;
+    return da-db;
+  });
+  const pool=sorted.slice(0, Math.min(sorted.length, (count-1)*2+4));
+  // 시드 셔플 후 추출 — 가깝되 매번 다른 조합
+  for(let i=pool.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
+  const members=[rootBook, ...pool.slice(0, count-1)];
+
+  // 최소신장트리(Prim) — 가까운 것끼리 나뭇가지처럼
+  const edges=primMST(members);
+  // 곁가지 1~2개 — 너무 트리스럽지 않게
+  const extra=1+Math.floor(rnd()*2);
+  for(let e=0;e<extra;e++){
+    const i=Math.floor(rnd()*members.length);
+    let bj=-1,bd=Infinity;
+    for(let j=0;j<members.length;j++){
+      if(j===i) continue;
+      if(edges.some(([a,b])=>(a===i&&b===j)||(a===j&&b===i))) continue;
+      const dx=members[i]._csx-members[j]._csx, dy=members[i]._csy-members[j]._csy;
+      const d=dx*dx+dy*dy;
+      if(d<bd){bd=d;bj=j;}
+    }
+    if(bj>=0) edges.push([i,bj]);
+  }
+  return {members, edges};
+}
+
+function primMST(nodes){
+  const n=nodes.length; if(n<2) return [];
+  const used=new Array(n).fill(false); used[0]=true;
+  const inTree=[0]; const edges=[];
+  for(let k=1;k<n;k++){
+    let best=Infinity,bi=-1,bj=-1;
+    for(const i of inTree){
+      for(let j=0;j<n;j++){
+        if(used[j]) continue;
+        const dx=nodes[i]._csx-nodes[j]._csx, dy=nodes[i]._csy-nodes[j]._csy;
+        const d=dx*dx+dy*dy;
+        if(d<best){best=d;bi=i;bj=j;}
+      }
+    }
+    if(bj<0) break;
+    used[bj]=true; inTree.push(bj); edges.push([bi,bj]);
+  }
+  return edges;
+}
+
+// ── Easing ────────────────────────────────────────────
+function eio(t){return t<0.5?2*t*t:-1+(4-2*t)*t;}
+function eout(t){return 1-(1-t)*(1-t);}
+
+// ── 헤더 통합 제어 ────────────────────────────────────
+function setHeaders(tlA,cluA){
+  elHeader.style.opacity =tlA.toFixed(3);
+  elNav.style.opacity    =tlA.toFixed(3);
+  elBack.style.opacity   =cluA.toFixed(3);
+  elNav.style.pointerEvents =tlA>0.3?'all':'none';
+  elBack.style.pointerEvents=cluA>0.3?'all':'none';
+}
+
+// ── 좌표 변환 ─────────────────────────────────────────
+function tlToScreen(tPos){
+  const relX=tPos-currentOffset;
+  const normX=relX/(W*0.72);
+  return{
+    x:W/2+relX, y:H*0.50+normX*normX*70,
+    opacity:Math.max(0,1-Math.abs(normX)*1.5),
+    scale:Math.max(0.25,1-Math.abs(normX)*0.75)
+  };
+}
+
+// ── 성단 배치 계산 — 시드 난수로 원판 전체에 자연 산개 ──
+function computeCluster(phaseIdx,cx,cy){
+  const books=BOOKS.filter(b=>b.phase===phaseIdx+1);
+
+  // 화면 활용 가능한 최대 반경 (화면의 42%)
+  const maxR=Math.min(W,H)*0.42;
+
+  return books.map((book)=>{
+    // 책 id로 고정된 난수 — 매번 같은 자리, 매번 같은 별자리
+    const rnd=seededRand(book.id*2654435761+12345);
+    const a=rnd()*Math.PI*2;
+    // sqrt(random) → 면적 균일 분포 (중심에 뭉치지 않고 고르게)
+    const rr=Math.sqrt(rnd())*maxR;
+    return{
+      book,
+      x:cx+Math.cos(a)*rr,
+      y:cy+Math.sin(a)*rr
+    };
+  });
+}
+
+// ── 배경 카메라 ───────────────────────────────────────
+function bgZoomIn(phaseIdx){
+  if(!window._bg) return;
+  window._bg.targetZ=24; window._bg.targetX=(phaseIdx-3.5)*5; window._bg.targetY=18;
+}
+function bgZoomOut(){
+  if(!window._bg) return;
+  window._bg.targetZ=100; window._bg.targetX=0; window._bg.targetY=27;
+}
+
+// ── 타임라인 그리기 ───────────────────────────────────
+function drawTimeline(alpha){
+  if(alpha<=0.01) return;
+
+  // 데이터 로딩 중 표시
+  if(!dataReady){
+    ctx.save();ctx.globalAlpha=alpha*0.5;ctx.textAlign='center';
+    ctx.font=`300 13px 'Noto Sans KR'`;
+    ctx.fillStyle='#6E6C66';
+    ctx.fillText('책 목록을 불러오는 중…', W/2, H/2);
+    ctx.restore();
+  }
+
+  // 호 라인
+  ctx.save(); ctx.globalAlpha=alpha;
+  ctx.beginPath();
+  for(let t=-1.5;t<=1.5;t+=0.015){
+    const px=W/2+t*W*0.55,py=H*0.50+t*t*70;
+    t===-1.5?ctx.moveTo(px,py):ctx.lineTo(px,py);
+  }
+  ctx.strokeStyle='rgba(110,108,102,0.18)';ctx.lineWidth=0.5;ctx.stroke();
+  ctx.restore();
+
+  phaseHitAreas=[];
+
+  PHASES.forEach((phase,i)=>{
+    const tPos=i*PHASE_SPACING;
+    const{x,y,opacity,scale}=tlToScreen(tPos);
+    if(opacity<0.02) return;
+    const eff=opacity*alpha;
+
+    // 중심 정렬 정도 (0~1) — 강조 강도를 부드럽게 보간
+    const cness=centernessOf(i);
+    const pulse=1+Math.sin(performance.now()/600)*0.06*cness;
+
+    // 클릭 힌트 링 — 중심일수록 선명, 가장자리는 거의 사라짐
+    ctx.save();ctx.globalAlpha=eff*(0.06+cness*0.5);
+    ctx.beginPath();ctx.arc(x,y,24*scale*pulse,0,Math.PI*2);
+    ctx.strokeStyle='#D9A96E';ctx.lineWidth=0.5+cness*0.5;ctx.stroke();ctx.restore();
+
+    // 중심 정렬 시 바깥 펄스 링 하나 더
+    if(cness>0.5){
+      ctx.save();ctx.globalAlpha=eff*(cness-0.5)*0.5;
+      ctx.beginPath();ctx.arc(x,y,34*scale*pulse,0,Math.PI*2);
+      ctx.strokeStyle='#D9A96E';ctx.lineWidth=0.5;ctx.stroke();ctx.restore();
+    }
+
+    // 마커 — 중심일수록 밝고 큼
+    const mr=(5+cness*2)*scale;
+    ctx.save();ctx.globalAlpha=eff*(0.55+cness*0.45);
+    ctx.beginPath();ctx.arc(x,y,mr,0,Math.PI*2);
+    ctx.fillStyle=cness>0.5?'#D9A96E':'#B87D3E';
+    ctx.shadowColor='rgba(184,125,62,0.85)';ctx.shadowBlur=10+cness*12;
+    ctx.fill();ctx.restore();
+
+    phaseHitAreas.push({x,y,r:26*scale,phaseIdx:i});
+
+    // 진입 신호 — 충분히 중심에 왔을 때만 페이드인
+    if(cness>0.85){
+      ctx.save();ctx.globalAlpha=eff*((cness-0.85)/0.15)*0.85;
+      ctx.textAlign='center';
+      ctx.font=`italic 300 ${Math.round(11*scale)}px 'IM Fell English'`;
+      ctx.fillStyle='#D9A96E';
+      ctx.fillText('click to enter', x, y+34*scale);
+      ctx.restore();
+    }
+
+    // 레이블 (호 위)
+    ctx.save();ctx.globalAlpha=eff;ctx.textAlign='center';
+    ctx.font=`300 ${Math.round(11.5*scale)}px 'IM Fell English'`;
+    ctx.fillStyle='#8C5A20';
+    ctx.fillText(`Phase ${phase.id}`,x,y-58*scale);
+    ctx.font=`300 ${Math.round(16*scale)}px 'Noto Serif KR'`;
+    ctx.fillStyle='#C8C5BE';
+    ctx.fillText(phase.name,x,y-38*scale);
+    ctx.font=`300 ${Math.round(11*scale)}px 'Noto Sans KR'`;
+    ctx.fillStyle='#6E6C66';
+    ctx.fillText(phase.desc,x,y-18*scale);
+    ctx.restore();
+  });
+
+  // 책 별 — Phase 마커 중심으로 원형 산포
+  BOOKS.forEach(book=>{
+    const pIdx=book.phase-1;
+    // id 기반 고정 랜덤 — 매번 같은 위치 유지
+    const s1=Math.sin(book.id*137.508);
+    const s2=Math.cos(book.id*97.312);
+    const s3=Math.sin(book.id*53.7);
+    // 극좌표로 원형 배치
+    const angle=s1*Math.PI*2;
+    const radius=Math.abs(s2)*PHASE_SPACING*0.38 + Math.abs(s3)*PHASE_SPACING*0.08;
+    const tPos=pIdx*PHASE_SPACING + Math.cos(angle)*radius*0.55;
+    const yOff=Math.sin(angle)*radius*0.75;
+
+    const{x,y,opacity,scale}=tlToScreen(tPos);
+    if(opacity<0.04) return;
+    const c=book._starColor;
+    const bx=x, by=y+yOff*scale, r=2.5*scale;
+    ctx.save();ctx.globalAlpha=opacity*alpha*0.28;
+    ctx.beginPath();ctx.arc(bx,by,r,0,Math.PI*2);
+    ctx.fillStyle=`rgb(${Math.round(c.r*255)},${Math.round(c.g*255)},${Math.round(c.b*255)})`;
+    ctx.shadowColor=`rgba(${Math.round(c.r*255)},${Math.round(c.g*255)},${Math.round(c.b*255)},0.25)`;
+    ctx.shadowBlur=3;ctx.fill();ctx.restore();
+  });
+}
+
+// ── 성단 그리기 ───────────────────────────────────────
+function drawCluster(layout,alpha,phaseIdx){
+  if(alpha<=0.01||!layout.length) return;
+  const cx=W/2,cy=H/2;
+  const phase=PHASES[phaseIdx];
+  const now=performance.now()/1000;
+
+  // 강조 대상 = 호버 별 또는 검색으로 고정된 별
+  const focused = hoveredBook || pinnedBook;
+  // 별자리는 별 위치(_csx)가 준비된 뒤 생성 (검색 진입 직후도 대응)
+  if(focused && focused._csx!=null && constellation.members.length===0 && constellationDir===1){
+    constellation=buildConstellation(focused);
+  }
+
+  // C: 진입 애니 진행도 (0→1, ENTRY_DURATION 초 동안)
+  const entryElapsed=now-clusterEntryTime;
+  const entryT=Math.min(1, entryElapsed/ENTRY_DURATION);
+  // easeOutCubic — 빠르게 퍼졌다 부드럽게 안착
+  const entryE=1-Math.pow(1-entryT,3);
+
+  // ── 별자리 — 호버한 별 둘레의 5~12개를 자연스럽게 연결 ──
+  if(constellation.members.length>1 && constellationAlpha>0.01){
+    const m=constellation.members;
+    ctx.save();
+    ctx.strokeStyle='rgba(217,169,110,0.85)';
+    ctx.lineWidth=0.6;
+    ctx.lineCap='round';
+    for(const [i,j] of constellation.edges){
+      const a=m[i], b=m[j];
+      if(a._csx==null||b._csx==null) continue;
+      ctx.globalAlpha=alpha*constellationAlpha*0.55;
+      ctx.beginPath();
+      ctx.moveTo(a._csx,a._csy);
+      ctx.lineTo(b._csx,b._csy);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  // 별자리 알파 애니메이션
+  if(constellationDir===1){
+    constellationAlpha=Math.min(1, constellationAlpha+0.04);
+  } else if(constellationDir===-1){
+    constellationAlpha=Math.max(0, constellationAlpha-0.03);
+    if(constellationAlpha<=0){ constellationDir=0; constellation={members:[],edges:[]}; }
+  }
+
+  layout.forEach(({book,x,y},i)=>{
+    const isHovered=(book===focused);
+    const c=book._starColor;
+    const colStr=`rgb(${Math.round(c.r*255)},${Math.round(c.g*255)},${Math.round(c.b*255)})`;
+    const glowStr=`rgba(${Math.round(c.r*255)},${Math.round(c.g*255)},${Math.round(c.b*255)},0.9)`;
+
+    // C: 진입 — 별마다 약간 다른 딜레이로 중앙에서 퍼져나옴
+    const delay=Math.min(i/layout.length*0.4, 0.38); // 0~0.38초 딜레이
+    const starT=Math.min(1, Math.max(0, (entryT-delay)/(1-delay)));
+    const starE=1-Math.pow(1-starT,3);
+
+    // 진입 위치: 중앙(cx,cy) → 최종 위치(x,y)
+    const rx=cx+(x-cx)*starE;
+    const ry=cy+(y-cy)*starE;
+
+    // A: 미세 부유 — 각 별마다 고유 주기·방향
+    const floatAmp=3+Math.abs(Math.sin(book.id*7.3))*4; // 3~7px
+    const floatSpeedX=0.4+Math.abs(Math.sin(book.id*3.1))*0.5;
+    const floatSpeedY=0.35+Math.abs(Math.cos(book.id*5.7))*0.4;
+    const floatX=Math.sin(now*floatSpeedX+book.id*2.1)*floatAmp;
+    const floatY=Math.cos(now*floatSpeedY+book.id*1.7)*floatAmp*0.7;
+
+    // 진입 완료 후 부유 적용 (진입 중엔 부유 억제)
+    const floatMix=Math.max(0, (starE-0.7)/0.3); // 70% 이후부터 부유 시작
+    const fx=rx+floatX*floatMix;
+    const fy=ry+floatY*floatMix;
+
+    // 마우스 거리 기반 proximity
+    const dx=mouseX-fx, dy=mouseY-fy;
+    const dist=Math.sqrt(dx*dx+dy*dy);
+    const proximity=Math.max(0,1-dist/320);
+    const baseAlpha=(0.2+proximity*0.8)*starE; // 진입 중 페이드인
+
+    const hot = isHovered; // = focused (호버 또는 검색 고정)
+
+    // 별 크기
+    const pulse=1+Math.sin(now*2+book.id)*0.1;
+    const r = hot ? 12 : (3+proximity*6)*pulse;
+
+    const cr=Math.round(c.r*255), cg=Math.round(c.g*255), cb2=Math.round(c.b*255);
+
+    // 은은한 파동 — focused 별 둘레로 천천히 퍼지는 동심원 (지속)
+    if(hot){
+      const period=2.6;
+      for(let k=0;k<2;k++){
+        const tt=((now/period)+k*0.5)%1;
+        ctx.save();
+        ctx.globalAlpha=alpha*(1-tt)*0.33;
+        ctx.beginPath();
+        ctx.arc(fx,fy,(r*2.2)+tt*44,0,Math.PI*2);
+        ctx.strokeStyle='rgba(242,224,200,0.8)';
+        ctx.lineWidth=0.8;
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    // 방사형 그라디언트 — 중심 밝고 바깥으로 흐려지는 별 느낌
+    const starAlpha=alpha*(hot?1:baseAlpha);
+    const grad=ctx.createRadialGradient(fx,fy,0,fx,fy,r*2.2);
+
+    if(hot){
+      grad.addColorStop(0,   `rgba(255,255,255,0.95)`);
+      grad.addColorStop(0.2, `rgba(${cr},${cg},${cb2},0.85)`);
+      grad.addColorStop(0.5, `rgba(${cr},${cg},${cb2},0.35)`);
+      grad.addColorStop(1,   `rgba(${cr},${cg},${cb2},0)`);
+    } else {
+      const brightness=0.5+proximity*0.4;
+      grad.addColorStop(0,   `rgba(255,255,255,${0.8*brightness})`);
+      grad.addColorStop(0.25,`rgba(${cr},${cg},${cb2},${0.65*brightness})`);
+      grad.addColorStop(0.6, `rgba(${cr},${cg},${cb2},${0.2*brightness})`);
+      grad.addColorStop(1,   `rgba(${cr},${cg},${cb2},0)`);
+    }
+
+    ctx.save();
+    ctx.globalAlpha=starAlpha;
+    ctx.beginPath();
+    ctx.arc(fx,fy,r*2.2,0,Math.PI*2);
+    ctx.fillStyle=grad;
+    ctx.fill();
+    ctx.restore();
+
+    // 호버·검색 시 제목 — 별 바로 위
+    if(hot){
+      ctx.save();ctx.globalAlpha=alpha;
+      ctx.font=`400 13px 'Noto Serif KR'`;
+      ctx.fillStyle='rgba(242,224,200,0.95)';
+      ctx.shadowColor='rgba(0,0,0,0.9)';ctx.shadowBlur=10;
+      ctx.textAlign='center';
+      ctx.fillText(book.title, fx, fy-r*2.2-8);
+      ctx.restore();
+    }
+
+    book._csx=fx;book._csy=fy;book._cr=r+10;
+  });
+}
+
+// ── 책 정보 표시 (검색창 아래 패널 머리) ──────────────
+function showBookInfo(book){
+  document.getElementById('bp-title').textContent=book.title;
+  document.getElementById('bp-author').textContent=
+    book.author+(book.publisher&&book.publisher!=='(알 수 없음)'?'  ·  '+book.publisher:'');
+  document.getElementById('bp-subtitle').textContent=book.subtitle?book.subtitle:'';
+  document.getElementById('book-panel').classList.add('visible');
+}
+function hideBookInfo(){
+  if(panelBook) return; // 입력 패널이 열려 있으면 정보 유지
+  document.getElementById('book-panel').classList.remove('visible');
+}
+
+// ── 메인 루프 ─────────────────────────────────────────
+const SPEED=0.013; // 느리게 — 천천히 빨려드는 느낌
+
+function loop(){
+  ctx.clearRect(0,0,W,H);
+
+  if(viewMode==='timeline'){
+    currentOffset+=(targetOffset-currentOffset)*0.055;
+    const newPI=Math.max(0,Math.min(PHASES.length-1,Math.round(currentOffset/PHASE_SPACING)));
+    if(newPI!==currentPhaseIndex){currentPhaseIndex=newPI;updatePhaseUI();}
+
+    // 타임라인 스크롤에 비례한 배경 시차(parallax)
+    if(window._bg){
+      const totalRange=(PHASES.length-1)*PHASE_SPACING;
+      const normalized=currentOffset/totalRange;
+      window._bg.targetX=(normalized-0.5)*28;
+    }
+
+    drawTimeline(1);
+    setHeaders(1,0);
+  }
+
+  else if(viewMode==='zoom-in'){
+    zoomT=Math.min(1,zoomT+SPEED);
+    const e=eio(zoomT);
+    const tlA=Math.max(0,1-e*1.4);
+    const cA =Math.max(0,e*1.4-0.4);
+    drawTimeline(tlA);
+    refreshFocus();
+    drawCluster(clusterBooks,cA,activeIdx);
+    setHeaders(tlA,cA);
+    if(zoomT>=1){
+      viewMode='cluster';setClusterHeaderText(activeIdx);
+      if(pendingEnter!=null){
+        if(pendingEnter===activeIdx){ pendingEnter=null; }
+        else { const pe=pendingEnter; window.exitCluster(); pendingEnter=pe; }
+      }
+    }
+  }
+
+  else if(viewMode==='cluster'){
+    refreshFocus();
+    drawCluster(clusterBooks,1,activeIdx);
+    setHeaders(0,1);
+  }
+
+  else if(viewMode==='zoom-out'){
+    zoomT=Math.min(1,zoomT+SPEED);
+    const e=eio(zoomT);
+    const cA=Math.max(0,1-e*1.4);
+    const tlA=Math.max(0,e*1.4-0.4);
+    drawCluster(clusterBooks,cA,activeIdx);
+    drawTimeline(tlA);
+    setHeaders(tlA,cA);
+    if(zoomT>=1){
+      viewMode='timeline';
+      activeIdx=null;clusterBooks=[];
+      hoveredBook=null; panelBook=null; focusedBook=null;
+      document.getElementById('book-panel').classList.remove('visible','open');
+      if(pendingEnter!=null){
+        const pe=pendingEnter; pendingEnter=null;
+        targetOffset=pe*PHASE_SPACING; clamp();
+        currentOffset=targetOffset; // 즉시 정렬 후 바로 진입
+        enterCluster(pe);
+      } else {
+        pinnedBook=null;
+      }
+    }
+  }
+
+  requestAnimationFrame(loop);
+}
+
+// ── 전환 진입점 ───────────────────────────────────────
+function enterCluster(phaseIdx){
+  if(viewMode!=='timeline') return;
+  activeIdx=phaseIdx;
+  clusterBooks=computeCluster(phaseIdx,W/2,H/2);
+  setClusterHeaderText(phaseIdx);
+  viewMode='zoom-in';zoomT=0;
+  clusterEntryTime=performance.now()/1000; // 진입 시각 기록
+  bgZoomIn(phaseIdx);
+}
+
+window.exitCluster=function(){
+  if(viewMode!=='cluster') return;
+  if(typeof flushPanel==='function') flushPanel(); // 나가기 전 저장
+  hoveredBook=null;
+  constellationDir=-1; // 별자리 선 페이드아웃
+  viewMode='zoom-out';zoomT=0;
+  bgZoomOut();
+};
+
+function setClusterHeaderText(idx){ /* 우측 상단 헤더 제거됨 */ }
+
+// ── UI 업데이트 ───────────────────────────────────────
+function updatePhaseUI(){
+  const p=PHASES[currentPhaseIndex];
+  document.getElementById('current-phase-num').textContent=`Phase ${p.id}`;
+  document.getElementById('current-phase-name').textContent=p.name;
+  document.querySelectorAll('.nav-dot').forEach((d,i)=>
+    d.classList.toggle('active',i===currentPhaseIndex));
+}
+function updateNavActive(idx){
+  document.querySelectorAll('.nav-dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+}
+
+// ── 네비 점 ───────────────────────────────────────────
+const nav=document.getElementById('nav');
+PHASES.forEach((phase,i)=>{
+  const dot=document.createElement('div');
+  dot.className='nav-dot'+(i===0?' active':'');
+  dot.title=`Phase ${phase.id} — ${phase.name}`;
+  dot.addEventListener('click',()=>{
+    if(viewMode==='timeline'||viewMode==='zoom-out')
+      targetOffset=i*PHASE_SPACING;
+  });
+  nav.appendChild(dot);
+});
+
+// ── 입력 이벤트 ───────────────────────────────────────
+let isDragging=false,dragSX=0,dragSO=0,mdX=0,mdY=0,mdT=0;
+
+tlCanvas.addEventListener('mousedown',e=>{
+  if(viewMode!=='timeline'&&viewMode!=='cluster') return;
+  isDragging=true;dragSX=e.clientX;dragSO=targetOffset;
+  mdX=e.clientX;mdY=e.clientY;mdT=Date.now();
+  tlCanvas.style.cursor='grabbing';
+});
+window.addEventListener('mousemove',e=>{
+  mouseX=e.clientX; mouseY=e.clientY;
+  if(!isDragging){checkHover(e.clientX,e.clientY);return;}
+  if(viewMode==='timeline'){targetOffset=dragSO+(dragSX-e.clientX)*1.15;clamp();}
+});
+window.addEventListener('mouseup',e=>{
+  if(!isDragging) return;
+  isDragging=false;tlCanvas.style.cursor='default';
+  const dx=e.clientX-mdX,dy=e.clientY-mdY;
+  if(Math.sqrt(dx*dx+dy*dy)<6&&Date.now()-mdT<300) handleClick(e.clientX,e.clientY);
+  else if(viewMode==='timeline') snapNow();
+});
+tlCanvas.addEventListener('wheel',e=>{
+  e.preventDefault();
+  if(viewMode!=='timeline') return;
+  targetOffset+=(e.deltaY+e.deltaX)*0.75;clamp();
+  scheduleSnap();
+},{passive:false});
+
+let tSX=0,tSO=0,tDX=0,tDY=0,tDT=0;
+tlCanvas.addEventListener('touchstart',e=>{
+  tSX=e.touches[0].clientX;tSO=targetOffset;
+  tDX=tSX;tDY=e.touches[0].clientY;tDT=Date.now();
+},{passive:true});
+tlCanvas.addEventListener('touchmove',e=>{
+  if(viewMode!=='timeline') return;
+  targetOffset=tSO+(tSX-e.touches[0].clientX)*1.4;clamp();
+},{passive:true});
+tlCanvas.addEventListener('touchend',e=>{
+  const ch=e.changedTouches[0];
+  const dx=ch.clientX-tDX,dy=ch.clientY-tDY;
+  if(Math.sqrt(dx*dx+dy*dy)<8&&Date.now()-tDT<300) handleClick(ch.clientX,ch.clientY);
+  else if(viewMode==='timeline') snapNow();
+});
+
+function clamp(){targetOffset=Math.max(0,Math.min((PHASES.length-1)*PHASE_SPACING,targetOffset));}
+
+// ── 중심 정렬(snap-to-center) ─────────────────────────
+// 각 Phase가 화면 중심에 얼마나 가까운지: 정확히 중심=1, 반 칸 벗어나면 0
+function centernessOf(i){
+  return Math.max(0, 1 - Math.abs(currentOffset - i*PHASE_SPACING)/(PHASE_SPACING*0.5));
+}
+// 현재 중심 Phase가 충분히 정렬되었는가 (진입 허용 임계)
+function isCentered(){
+  return centernessOf(currentPhaseIndex) > 0.72;
+}
+// 가장 가까운 Phase로 즉시 스냅
+function snapNow(){
+  if(snapTimer){clearTimeout(snapTimer);snapTimer=null;}
+  if(viewMode!=='timeline') return;
+  targetOffset=Math.round(targetOffset/PHASE_SPACING)*PHASE_SPACING;
+  clamp();
+}
+// 입력이 멈춘 뒤 디바운스로 스냅 (자유 스크롤 감각 유지)
+let snapTimer=null;
+function scheduleSnap(delay=140){
+  if(snapTimer) clearTimeout(snapTimer);
+  snapTimer=setTimeout(()=>{ snapTimer=null; snapNow(); },delay);
+}
+
+function handleClick(mx,my){
+  if(viewMode==='timeline'){
+    for(const h of phaseHitAreas){
+      const dx=mx-h.x,dy=my-h.y;
+      if(Math.sqrt(dx*dx+dy*dy)<h.r){
+        if(h.phaseIdx===currentPhaseIndex && isCentered()){
+          enterCluster(h.phaseIdx);          // 중심에 정렬된 Phase → 성단 진입
+        } else {
+          targetOffset=h.phaseIdx*PHASE_SPACING; clamp();  // 양옆 Phase → 중심으로 이동
+        }
+        return;
+      }
+    }
+  }
+  // 성단 뷰 — 별 클릭 시 패널 열기, 빈 곳 클릭 시 닫기
+  else if(viewMode==='cluster'){
+    let clicked=null;
+    for(const cb of clusterBooks){
+      if(!cb.book._csx) continue;
+      const dx=mx-cb.book._csx,dy=my-cb.book._csy;
+      if(Math.sqrt(dx*dx+dy*dy)<cb.book._cr){clicked=cb.book;break;}
+    }
+    if(clicked){
+      if(panelBook && panelBook!==clicked) flushPanel(); // 직전 책 저장
+      pinnedBook=clicked; hoveredBook=clicked;
+      refreshFocus();
+      openPanel(clicked);
+    } else {
+      flushPanel();                                      // 빈 곳 클릭 → 저장 후 닫기
+      pinnedBook=null; panelBook=null;
+      document.getElementById('book-panel').classList.remove('open');
+      refreshFocus();
+    }
+  }
+}
+
+function checkHover(mx,my){
+  let found=false;
+  if(viewMode==='timeline'){
+    for(const h of phaseHitAreas){
+      const dx=mx-h.x,dy=my-h.y;
+      if(Math.sqrt(dx*dx+dy*dy)<h.r){found=true;break;}
+    }
+    tlCanvas.style.cursor=found?'pointer':'default';
+  } else if(viewMode==='cluster'){
+    let newHovered=null;
+    for(const cb of clusterBooks){
+      if(!cb.book._csx) continue;
+      const dx=mx-cb.book._csx,dy=my-cb.book._csy;
+      if(Math.sqrt(dx*dx+dy*dy)<cb.book._cr){newHovered=cb.book;break;}
+    }
+    if(newHovered!==hoveredBook){
+      hoveredBook=newHovered;
+      // 다른 별에 호버하면 검색 고정(pin) 해제
+      if(newHovered && newHovered!==pinnedBook) pinnedBook=null;
+      refreshFocus();
+    }
+    tlCanvas.style.cursor=hoveredBook?'pointer':'default';
+  }
+}
+
+// ── 키보드 ────────────────────────────────────────────
+document.addEventListener('keydown',e=>{
+  const si=document.getElementById('book-search-input');
+  if(si && document.activeElement===si) return; // 검색 입력 중엔 성단 조작 안 함
+  if(e.key==='Escape'){
+    if(panelBook){
+      flushPanel();
+      panelBook=null; pinnedBook=null;
+      document.getElementById('book-panel').classList.remove('open');
+      refreshFocus();
+    } else if(viewMode==='cluster') window.exitCluster();
+    return;
+  }
+  if(viewMode!=='timeline') return;
+  if(e.key==='Enter' && isCentered()){ enterCluster(currentPhaseIndex); return; }
+  if(e.key==='ArrowRight'){targetOffset=(Math.round(targetOffset/PHASE_SPACING)+1)*PHASE_SPACING;clamp();}
+  if(e.key==='ArrowLeft') {targetOffset=(Math.round(targetOffset/PHASE_SPACING)-1)*PHASE_SPACING;clamp();}
+});
+
+// ── BGM 제어 ─────────────────────────────────────────
+const bgm = document.getElementById('bgm');
+let bgmPlaying = false;
+
+bgm.volume = 0.35;
+
+// 첫 번째 사용자 인터랙션 시 자동 재생 시도
+function tryAutoPlay(){
+  bgm.play().then(()=>{
+    bgmPlaying = true;
+    updateBgmIcon();
+  }).catch(()=>{}); // 자동재생 차단 시 무시
+  document.removeEventListener('click', tryAutoPlay);
+  document.removeEventListener('keydown', tryAutoPlay);
+}
+document.addEventListener('click', tryAutoPlay);
+document.addEventListener('keydown', tryAutoPlay);
+
+window.toggleBgm = function(){
+  if(bgmPlaying){
+    bgm.pause();
+    bgmPlaying = false;
+  } else {
+    bgm.play();
+    bgmPlaying = true;
+  }
+  updateBgmIcon();
+};
+
+window.setBgmVol = function(v){
+  bgm.volume = parseFloat(v);
+};
+
+function updateBgmIcon(){
+  const icon = document.getElementById('bgm-icon');
+  if(bgmPlaying){
+    // 일시정지 아이콘
+    icon.innerHTML = `
+      <rect x="6" y="4" width="4" height="16" fill="rgba(184,125,62,0.8)"/>
+      <rect x="14" y="4" width="4" height="16" fill="rgba(184,125,62,0.8)"/>`;
+  } else {
+    // 재생 아이콘
+    icon.innerHTML = `
+      <polygon points="5,3 19,12 5,21" fill="rgba(110,108,102,0.8)" stroke="none"/>`;
+  }
+}
+
+// ── 책 패널 (정보 + 입력/저장, 세션 메모리) ───────────
+function refreshFocus(){
+  const f = hoveredBook || pinnedBook;
+  if(f===focusedBook) return;
+  focusedBook=f;
+  if(f){
+    constellation={members:[],edges:[]}; // drawCluster가 _csx 준비 시 재생성
+    constellationDir=1;
+    showBookInfo(panelBook||f);
+  } else {
+    constellationDir=-1;
+    hideBookInfo();
+  }
+}
+function ensureData(book){
+  if(!bookData[book.id]) bookData[book.id]={music:[],reading:[],lines:[]};
+  return bookData[book.id];
+}
+function bpEsc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function bpLinkify(text){
+  const t=bpEsc(text);
+  if(/^https?:\/\//i.test(text)) return '<a href="'+t+'" target="_blank" rel="noopener">'+t+'</a>';
+  return t;
+}
+async function openPanel(book){
+  panelBook=book; panelDirty=false; ensureData(book);
+  showBookInfo(book);
+  const bp=document.getElementById('book-panel');
+  bp.classList.add('visible','open');
+  renderLists(book); renderDial(book);          // 우선 로컬(기존) 렌더
+  const remote=await loadBook(book.id);          // 그 책의 저장된 노트 불러오기
+  if(panelBook===book && remote){                // 그새 다른 책으로 넘어가지 않았으면 반영
+    bookData[book.id]=remote;
+    renderLists(book); renderDial(book);
+  }
+}
+function renderLists(book){
+  const d=ensureData(book);
+  ['music','reading'].forEach(kind=>{
+    const el=document.getElementById('bp-'+kind+'-list');
+    el.innerHTML=d[kind].map((v,i)=>
+      '<div class="bp-item"><span class="bp-item-text">'+bpLinkify(v)+'</span>'
+      +'<span class="bp-del" data-i="'+i+'">×</span></div>').join('');
+    el.querySelectorAll('.bp-del').forEach(x=>{
+      x.addEventListener('click',()=>{ d[kind].splice(+x.dataset.i,1); panelDirty=true; renderLists(book); });
+    });
+  });
+}
+function renderDial(book){
+  const d=ensureData(book);
+  const track=document.getElementById('bp-dial-track');
+  track.innerHTML=d.lines.map((v,i)=>
+    '<div class="bp-line" data-i="'+i+'">'+bpEsc(v)
+    +'<span class="bp-line-del" data-i="'+i+'">×</span></div>').join('');
+  track.querySelectorAll('.bp-line-del').forEach(x=>{
+    x.addEventListener('click',e=>{ e.stopPropagation(); d.lines.splice(+x.dataset.i,1); panelDirty=true; renderDial(book); });
+  });
+  document.getElementById('bp-line-count').textContent=d.lines.length?d.lines.length+' / 50':'';
+  updateDialFocus();
+}
+function updateDialFocus(){
+  const dial=document.getElementById('bp-dial');
+  const lines=dial.querySelectorAll('.bp-line');
+  if(!lines.length) return;
+  const rect=dial.getBoundingClientRect();
+  const cy=rect.top+rect.height/2;
+  lines.forEach(el=>{
+    const r=el.getBoundingClientRect();
+    const dist=Math.min(1,Math.abs((r.top+r.height/2)-cy)/(rect.height/2));
+    el.style.opacity=(1-dist*0.82).toFixed(3);
+    el.style.transform='scale('+(1-dist*0.22).toFixed(3)+')';
+    el.style.filter='saturate('+(1-dist*0.65).toFixed(2)+')';
+  });
+}
+function addItem(kind){
+  if(!panelBook) return;
+  const inp=document.getElementById('bp-'+kind+'-input');
+  const v=inp.value.trim(); if(!v) return;
+  const d=ensureData(panelBook);
+  if(kind==='line'){
+    if(d.lines.length>=50) return;
+    d.lines.push(v); panelDirty=true; inp.value=''; renderDial(panelBook);
+    requestAnimationFrame(()=>{
+      const ls=document.getElementById('bp-dial').querySelectorAll('.bp-line');
+      if(ls.length){ ls[ls.length-1].scrollIntoView({block:'center'}); updateDialFocus(); }
+    });
+  } else {
+    d[kind].push(v); panelDirty=true; inp.value=''; renderLists(panelBook);
+  }
+}
+// 패널 입력 이벤트 바인딩
+document.querySelectorAll('.bp-btn').forEach(b=>{
+  b.addEventListener('click',()=>addItem(b.dataset.add));
+});
+['music','reading','line'].forEach(kind=>{
+  const inp=document.getElementById('bp-'+kind+'-input');
+  inp.addEventListener('keydown',e=>{
+    e.stopPropagation();
+    if(e.key==='Enter') addItem(kind);
+    else if(e.key==='Escape') inp.blur();
+  });
+});
+document.getElementById('bp-dial').addEventListener('scroll',updateDialFocus);
+
+// ── Supabase 저장/불러오기 + 로그인(magic link) ────────
+// window.sb 는 상단 module script에서 createClient로 만들어 둠 (없으면 null)
+function whenSB(cb){
+  if(typeof window.sb!=='undefined') cb();
+  else window.addEventListener('sb-ready', cb, {once:true});
+}
+
+async function loadBook(bookId){
+  if(!window.sb) return null;
+  try{
+    const { data, error } = await window.sb
+      .from('books_notes').select('music,reading,lines')
+      .eq('book_id', bookId).maybeSingle();
+    if(error){ console.warn('loadBook', error); return null; }
+    if(!data) return {music:[],reading:[],lines:[]};
+    return {music:data.music||[], reading:data.reading||[], lines:data.lines||[]};
+  }catch(e){ console.warn('loadBook 예외', e); return null; }
+}
+
+async function saveBook(bookId, d){
+  if(!window.sb) return {ok:false, reason:'no-client'};
+  if(!currentUser) return {ok:false, reason:'not-logged-in'};
+  try{
+    const { error } = await window.sb.from('books_notes').upsert({
+      user_id: currentUser.id, book_id: bookId,
+      music:d.music, reading:d.reading, lines:d.lines,
+      updated_at: new Date().toISOString()
+    }, { onConflict:'user_id,book_id' });
+    if(error){ console.warn('saveBook', error); return {ok:false, reason:'error', error}; }
+    return {ok:true};
+  }catch(e){ console.warn('saveBook 예외', e); return {ok:false, reason:'error'}; }
+}
+
+// 패널 내용이 바뀐 채로 닫히거나 다른 책으로 넘어갈 때 저장
+function flushPanel(){
+  if(!panelDirty || !panelBook) return;
+  const b=panelBook, d=bookData[b.id];
+  panelDirty=false;
+  if(!d) return;
+  saveBook(b.id, d).then(res=>{
+    if(res && !res.ok && res.reason==='not-logged-in') showAuthHint();
+  });
+}
+window.flushPanel=flushPanel;
+
+// ── 로그인 UI ─────────────────────────────────────────
+function setUser(u){
+  currentUser=u;
+  const status=document.getElementById('auth-status');
+  const login=document.getElementById('auth-login');
+  const msg=document.getElementById('auth-msg');
+  if(u){
+    status.textContent='✓ '+(u.email||'기록 가능');
+    status.style.display='block'; login.style.display='none';
+    if(msg) msg.textContent='';
+  } else {
+    status.style.display='none'; login.style.display='flex';
+  }
+}
+async function initAuth(){
+  if(!window.sb){ document.getElementById('auth-box').style.display='none'; return; }
+  try{
+    const { data:{ session } } = await window.sb.auth.getSession();
+    setUser(session ? session.user : null);
+    window.sb.auth.onAuthStateChange((_e, sess)=> setUser(sess ? sess.user : null));
+  }catch(e){ console.warn('initAuth', e); }
+}
+async function sendMagicLink(){
+  const email=document.getElementById('auth-email').value.trim();
+  const msg=document.getElementById('auth-msg');
+  if(!email){ msg.textContent='이메일을 입력하세요'; return; }
+  if(!window.sb){ msg.textContent='연결되지 않았어요'; return; }
+  msg.textContent='메일 보내는 중…';
+  try{
+    const { error } = await window.sb.auth.signInWithOtp({
+      email, options:{ emailRedirectTo: window.location.href }
+    });
+    msg.textContent = error ? ('오류: '+error.message) : '메일함에서 링크를 눌러주세요 ✉️';
+  }catch(e){ msg.textContent='오류가 났어요'; }
+}
+function showAuthHint(){
+  const box=document.getElementById('auth-box');
+  const msg=document.getElementById('auth-msg');
+  if(msg) msg.textContent='저장하려면 로그인하세요';
+  if(box){ box.classList.add('flash'); setTimeout(()=>box.classList.remove('flash'),1600); }
+}
+(function bindAuth(){
+  const send=document.getElementById('auth-send');
+  const email=document.getElementById('auth-email');
+  if(send) send.addEventListener('click', sendMagicLink);
+  if(email) email.addEventListener('keydown', e=>{
+    e.stopPropagation();
+    if(e.key==='Enter') sendMagicLink();
+  });
+})();
+whenSB(initAuth);
+
+// ── 책 검색 — 자동완성 · 초성 · 제안 · 별 반짝임 ──────
+(function(){
+  const CHO=['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+  function toCho(str){
+    let out='';
+    for(const ch of str){
+      const code=ch.charCodeAt(0)-0xAC00;
+      if(code>=0 && code<11172) out+=CHO[Math.floor(code/588)];
+      else out+=ch;
+    }
+    return out;
+  }
+  const isCho=q=>/^[ㄱ-ㅎ\s]+$/.test(q) && q.trim().length>0;
+  function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+  const box=document.getElementById('book-search');
+  const input=document.getElementById('book-search-input');
+  const results=document.getElementById('book-search-results');
+  let activeIndex=-1, current=[];
+
+  function filterBooks(q){
+    q=q.trim();
+    if(!q) return [];
+    const lower=q.toLowerCase();
+    const cho=isCho(q);
+    const qc=q.replace(/\s/g,'');
+    const res=[];
+    for(const b of BOOKS){
+      let hit=false;
+      if(cho){
+        if(toCho(b.title||'').replace(/\s/g,'').includes(qc)) hit=true;
+      } else {
+        if((b.title||'').toLowerCase().includes(lower) ||
+           (b.author||'').toLowerCase().includes(lower) ||
+           (b.subtitle||'').toLowerCase().includes(lower)) hit=true;
+      }
+      if(hit){ res.push(b); if(res.length>=8) break; }
+    }
+    return res;
+  }
+  function suggestBooks(){
+    const pool=BOOKS.slice();
+    for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
+    return pool.slice(0,6);
+  }
+
+  function render(list,isSuggest){
+    current=list; activeIndex=-1;
+    if(!list.length && !isSuggest){
+      results.innerHTML='<div class="bs-empty">그 이름의 별은 아직 없어요</div>';
+      results.classList.add('open'); return;
+    }
+    let html = isSuggest ? '<div class="bs-hint">이런 별은 어때요</div>' : '';
+    html += list.map((b,i)=>{
+      const meta=(b.author||'')+(b.phase_name?'   ·   '+b.phase_name:'');
+      return '<div class="bs-item" data-i="'+i+'">'
+        +'<div class="bs-item-title">'+esc(b.title)+'</div>'
+        +'<div class="bs-item-meta">'+esc(meta)+'</div></div>';
+    }).join('');
+    results.innerHTML=html;
+    results.classList.add('open');
+    results.querySelectorAll('.bs-item').forEach(el=>{
+      el.addEventListener('click',()=>selectBook(current[+el.dataset.i]));
+    });
+  }
+  function close(){ results.classList.remove('open'); results.innerHTML=''; activeIndex=-1; }
+  window.closeSearch=close;
+
+  function selectBook(book){
+    if(!book) return;
+    const phaseIdx=book.phase-1;
+    input.value=''; close(); input.blur();
+    pinnedBook=book; hoveredBook=null; // 검색 고정 → 파동·제목 지속
+    if(viewMode==='cluster' && activeIdx===phaseIdx){ refreshFocus(); return; }
+    if(viewMode==='timeline'){
+      targetOffset=phaseIdx*PHASE_SPACING; clamp();
+      currentOffset=targetOffset;
+      enterCluster(phaseIdx);
+    } else {
+      if(viewMode==='cluster') window.exitCluster();
+      pendingEnter=phaseIdx; // 전환 끝나면 loop가 진입시킴
+    }
+  }
+  window.selectBook=selectBook;
+
+  function upd(items){
+    items.forEach((el,i)=>el.classList.toggle('active',i===activeIndex));
+    if(activeIndex>=0 && items[activeIndex]) items[activeIndex].scrollIntoView({block:'nearest'});
+  }
+
+  input.addEventListener('input',()=>{
+    const q=input.value;
+    if(!q.trim()){ render(suggestBooks(),true); return; }
+    render(filterBooks(q),false);
+  });
+  input.addEventListener('focus',()=>{ if(!input.value.trim()) render(suggestBooks(),true); });
+  input.addEventListener('keydown',e=>{
+    const items=results.querySelectorAll('.bs-item');
+    if(e.key==='ArrowDown'){ e.preventDefault(); activeIndex=Math.min(items.length-1,activeIndex+1); upd(items); }
+    else if(e.key==='ArrowUp'){ e.preventDefault(); activeIndex=Math.max(0,activeIndex-1); upd(items); }
+    else if(e.key==='Enter'){ e.preventDefault();
+      if(activeIndex>=0 && current[activeIndex]) selectBook(current[activeIndex]);
+      else if(current.length) selectBook(current[0]);
+    }
+    else if(e.key==='Escape'){ input.value=''; close(); input.blur(); }
+  });
+  // 바깥 클릭 시 결과 닫기 (검색창 내부 클릭은 유지)
+  document.addEventListener('mousedown',e=>{ if(!box.contains(e.target)) close(); });
+})();
+
+window.addEventListener('resize',resize);
+resize();
+loop();
+</script>
+</body>
+</html>
