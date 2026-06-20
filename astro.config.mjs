@@ -8,6 +8,9 @@ export default defineConfig({
 	integrations: [mdx(), sitemap()],
 	image: {
 		experimentalGetImageAttr: true,
+		service: {
+		entrypoint: 'astro/assets/services/sharp',
+	},
 	},
 	fonts: [
 		{
